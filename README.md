@@ -1,55 +1,34 @@
-# MyBantuan & Tax Calc — Static Homepage
+# MyBantuan & Tax Calc
 
-Laman statik untuk menyenaraikan bantuan kerajaan Malaysia (STR, SARA, JKM, cukai, dll).
+Static site: Malaysian government aid (Bantuan) + University directory.
 
-## Struktur Fail
+## Structure
 
 ```
 /
-├── index.html          ← Laman utama (Bahasa Melayu)
-├── detail.html         ← Halaman butiran (dinamis ikut ?id=)
-├── css/style.css
-├── js/app.js
-└── data/
-    └── programs.json   ← **Semua data program di sini**
+  index.html              # Hub (Bantuan | Universiti)
+  css/ style.css
+  bantuan/
+    index.html            # Bantuan listing (STR, SARA, JKM...)
+    data/programs.json
+    str-2026.html, sara-2026.html, ...  # detail pages
+    css/ js/
+  universiti/
+    index.html            # University listing with filters
+    data/universities.json
+    css/ js/
 ```
 
-## Cara Maintain (Paling Mudah)
+## Bantuan
+- Data driven by `bantuan/data/programs.json`
+- Status from startDate/endDate (not hardcoded)
+- Detail pages with application guides + CTA to official portals
 
-1. **Tambah / kemaskini program**  
-   Edit hanya fail `data/programs.json`.  
-   Field penting:
-   - `id` — unik
-   - `startDate` / `endDate` (format `YYYY-MM-DD`)  
-     - `endDate: null` = berterusan
-   - `priority` — nombor tinggi = muncul lebih atas & kad lebih besar
-   - `detailPage` — biasanya `detail.html?id=xxxx`
+## Universiti
+- 38 universities: 20 awam, ~12 swasta, ~6 foreign branch campuses
+- Filter by type (Awam/Swasta/Cawangan Asing), state, search by name/field/city
+- Cards show location + strength tags; link to official website
 
-2. **Status tidak hardcode**  
-   Status (Sedang Berjalan / Akan Datang / Telah Tamat) dikira secara automatik di `js/app.js` berdasarkan tarikh hari ini.
-
-3. **Had paparan**  
-   Laman utama papar maksimum 30 program (boleh ubah `MAX_DISPLAY` dalam `app.js`).
-
-4. **Susunan**  
-   Priority tinggi dulu → kemudian `startDate` terbaru.
-
-## Menjalankan secara lokal
-
-Gunakan sebarang static server (contoh):
-
-```bash
-npx serve .
-# atau
-python3 -m http.server 8080
-```
-
-Kemudian buka `http://localhost:8080`.
-
-## Nota Reka Bentuk
-
-- Bento grid (saiz kad berbeza untuk hierarchy visual)
-- Warna sober (hijau aksen + kelabu)
-- Tiada animasi berlebihan
-- Responsif mobile
-- Semua teks Bahasa Melayu
+## Maintain
+- Add aid: edit `bantuan/data/programs.json` (+ optional detail HTML)
+- Add university: edit `universiti/data/universities.json`
