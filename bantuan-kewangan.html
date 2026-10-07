@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bantuan Kewangan Kerajaan — MyGovernment | MyBantuan</title>
-  <meta name="description" content="Senarai rasmi bantuan kewangan kerajaan Malaysia di portal MyGovernment. Pautan terus ke laman rasmi.">
+  <title>Bantuan Kewangan Kerajaan — Portal MyGovernment | MyBantuan</title>
+  <meta name="description" content="Portal rasmi MyGovernment untuk senarai bantuan kewangan dan kebajikan kerajaan Malaysia. Pautan terus ke laman rasmi.">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -21,21 +21,30 @@
       padding: 20px;
       margin-bottom: 16px;
     }
-    .detail-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 8px; }
-    .detail-box p { font-size: 15px; }
+    .detail-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 10px; }
+    .detail-box p, .detail-box ul { font-size: 15px; line-height: 1.55; }
+    .detail-box ul { padding-left: 20px; margin-top: 6px; }
+    .detail-box li { margin-bottom: 6px; }
+    .cta-area {
+      margin-top: 28px;
+      padding: 24px;
+      background: var(--accent-soft);
+      border-radius: var(--radius);
+      text-align: center;
+    }
+    .cta-area p { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; }
     .cta-btn {
       display: inline-block;
-      margin-top: 8px;
       background: var(--accent);
       color: #fff !important;
       font-weight: 600;
-      font-size: 14px;
-      padding: 12px 22px;
+      font-size: 15px;
+      padding: 14px 28px;
       border-radius: 8px;
       text-decoration: none !important;
     }
     .cta-btn:hover { opacity: 0.92; }
-    .note { font-size: 13px; color: var(--text-muted); margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .note { font-size: 13px; color: var(--text-muted); margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); }
   </style>
 </head>
 <body>
@@ -61,17 +70,26 @@
       <span class="card-status status-ongoing">Sedang Berjalan</span>
     </div>
     <h1 class="detail-title">Bantuan Kewangan (Portal MyGovernment)</h1>
-    <p class="detail-desc">Laman rasmi kerajaan yang mengumpulkan maklumat bantuan kewangan dan kebajikan di bawah kategori Bantuan Kebajikan & Kemudahan.</p>
+    <p class="detail-desc">Laman rasmi kerajaan Malaysia yang mengumpulkan maklumat bantuan kewangan dan kebajikan di bawah kategori Bantuan Kebajikan & Kemudahan.</p>
 
     <div class="detail-box">
-      <h3>Apa yang ada di sini</h3>
-      <p>Portal ini menyenaraikan pelbagai bantuan kewangan kerajaan termasuk STR, bantuan JKM dan inisiatif lain. Ia adalah sumber rasmi yang paling sesuai untuk semakan menyeluruh.</p>
+      <h3>Apa yang anda boleh jumpa</h3>
+      <ul>
+        <li>Senarai bantuan kewangan kerajaan (termasuk STR dan lain-lain)</li>
+        <li>Maklumat ringkas kelayakan dan cara memohon</li>
+        <li>Pautan terus ke portal agensi yang menguruskan bantuan berkenaan</li>
+      </ul>
     </div>
 
     <div class="detail-box">
-      <h3>Pautan Rasmi</h3>
+      <h3>Cadangan Penggunaan</h3>
+      <p>Gunakan portal ini sebagai titik permulaan untuk mencari bantuan yang relevan, kemudian ikuti pautan rasmi ke portal khusus (contohnya bantuantunai.hasil.gov.my untuk STR) untuk memohon atau semak status.</p>
+    </div>
+
+    <div class="cta-area">
+      <p>Lawati portal rasmi MyGovernment</p>
       <a class="cta-btn" href="https://www.malaysia.gov.my/my/categories/bantuan-kebajikan--kemudahan/bantuan-kewangan" target="_blank" rel="noopener">
-        malaysia.gov.my — Bantuan Kewangan →
+        Pergi ke MyGovernment — Bantuan Kewangan →
       </a>
     </div>
 
