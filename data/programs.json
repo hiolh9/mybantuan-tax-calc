@@ -11,7 +11,7 @@
       "amountSummary": "RM200 – RM2,200 setahun",
       "target": "Isi rumah ≤ RM5,000 • Warga emas • Bujang",
       "officialLink": "https://bantuantunai.hasil.gov.my",
-      "detailPage": "detail.html?id=str-2026",
+      "detailPage": "str-2026.html",
       "priority": 10
     },
     {
@@ -24,7 +24,20 @@
       "amountSummary": "RM50 – RM200 sebulan",
       "target": "Penerima STR • eKasih • Semua dewasa (one-off)",
       "officialLink": "https://sara.gov.my",
-      "detailPage": "detail.html?id=sara-2026",
+      "detailPage": "sara-2026.html",
+      "priority": 9
+    },
+    {
+      "id": "bantuan-kewangan-mygov",
+      "name": "Bantuan Kewangan (Portal MyGovernment)",
+      "shortDesc": "Senarai rasmi bantuan kewangan kerajaan di portal MyGovernment.",
+      "category": "portal",
+      "startDate": "2020-01-01",
+      "endDate": null,
+      "amountSummary": "Pelbagai bantuan",
+      "target": "Rakyat Malaysia",
+      "officialLink": "https://www.malaysia.gov.my/my/categories/bantuan-kebajikan--kemudahan/bantuan-kewangan",
+      "detailPage": "bantuan-kewangan.html",
       "priority": 9
     },
     {
@@ -36,8 +49,8 @@
       "endDate": null,
       "amountSummary": "Sehingga RM600 sebulan",
       "target": "Warga emas 60 tahun ke atas",
-      "officialLink": "https://ebantuanjkm.jkm.gov.my",
-      "detailPage": "detail.html?id=bwe-jkm",
+      "officialLink": "https://www.jkm.gov.my",
+      "detailPage": "https://www.jkm.gov.my",
       "priority": 8
     },
     {
@@ -49,8 +62,8 @@
       "endDate": null,
       "amountSummary": "RM450 sebulan",
       "target": "OKU bekerja (Kad OKU sah)",
-      "officialLink": "https://ebantuanjkm.jkm.gov.my",
-      "detailPage": "detail.html?id=epoku",
+      "officialLink": "https://www.jkm.gov.my",
+      "detailPage": "https://www.jkm.gov.my",
       "priority": 7
     },
     {
@@ -62,8 +75,8 @@
       "endDate": null,
       "amountSummary": "RM500 sebulan",
       "target": "Penjaga isi rumah ≤ RM5,000",
-      "officialLink": "https://ebantuanjkm.jkm.gov.my",
-      "detailPage": "detail.html?id=bpt-jkm",
+      "officialLink": "https://www.jkm.gov.my",
+      "detailPage": "https://www.jkm.gov.my",
       "priority": 6
     },
     {
@@ -76,7 +89,7 @@
       "amountSummary": "RM8,000 sekali + RM50/hari",
       "target": "Penerima STR (18–65 tahun)",
       "officialLink": "https://www.mysalam.com.my",
-      "detailPage": "detail.html?id=mysalam",
+      "detailPage": "https://www.mysalam.com.my",
       "priority": 8
     },
     {
@@ -88,8 +101,8 @@
       "endDate": null,
       "amountSummary": "Saringan percuma + sehingga RM20,000",
       "target": "Penerima STR & pasangan ≥40 tahun",
-      "officialLink": "https://protecthealth.com.my",
-      "detailPage": "detail.html?id=peka-b40",
+      "officialLink": "https://protecthealth.com.my/peka-b40/",
+      "detailPage": "https://protecthealth.com.my/peka-b40/",
       "priority": 7
     },
     {
@@ -101,8 +114,8 @@
       "endDate": null,
       "amountSummary": "Kuota sehingga 300 liter/bulan",
       "target": "Pemilik kenderaan layak (bukan T15)",
-      "officialLink": "https://budimadani.gov.my",
-      "detailPage": "detail.html?id=budi95",
+      "officialLink": "https://www.mof.gov.my",
+      "detailPage": "https://www.mof.gov.my",
       "priority": 8
     },
     {
@@ -115,7 +128,7 @@
       "amountSummary": "Jaminan sehingga 100%",
       "target": "Pembeli rumah pertama B40/M40",
       "officialLink": "https://www.sjkp.com.my",
-      "detailPage": "detail.html?id=sjkp",
+      "detailPage": "https://www.sjkp.com.my",
       "priority": 5
     },
     {
@@ -127,8 +140,8 @@
       "endDate": "2026-04-30",
       "amountSummary": "Sehingga RM50,000+",
       "target": "Pembayar cukai individu",
-      "officialLink": "https://www.hasil.gov.my",
-      "detailPage": "detail.html?id=tax-relief-2025",
+      "officialLink": "https://www.hasil.gov.my/en/individu/pelepasan-cukai/",
+      "detailPage": "https://www.hasil.gov.my/en/individu/pelepasan-cukai/",
       "priority": 9
     },
     {
@@ -141,7 +154,7 @@
       "amountSummary": "RM500 – RM2,500 setahun",
       "target": "Isi rumah ≤ RM5,000",
       "officialLink": "https://bantuantunai.hasil.gov.my",
-      "detailPage": "detail.html?id=str-2025",
+      "detailPage": "https://bantuantunai.hasil.gov.my",
       "priority": 2
     },
     {
@@ -153,8 +166,8 @@
       "endDate": null,
       "amountSummary": "RM300 sebulan",
       "target": "OKU 16–59 tahun (Kad OKU)",
-      "officialLink": "https://ebantuanjkm.jkm.gov.my",
-      "detailPage": "detail.html?id=btb-oku",
+      "officialLink": "https://www.jkm.gov.my",
+      "detailPage": "https://www.jkm.gov.my",
       "priority": 5
     },
     {
@@ -166,8 +179,8 @@
       "endDate": null,
       "amountSummary": "RM200–250 / anak",
       "target": "Penjaga kanak-kanak layak",
-      "officialLink": "https://ebantuanjkm.jkm.gov.my",
-      "detailPage": "detail.html?id=bkk-jkm",
+      "officialLink": "https://www.jkm.gov.my",
+      "detailPage": "https://www.jkm.gov.my",
       "priority": 4
     },
     {
@@ -180,7 +193,20 @@
       "amountSummary": "RM100 sekali",
       "target": "Semua warganegara ≥18 tahun",
       "officialLink": "https://sara.gov.my",
-      "detailPage": "detail.html?id=sara-semua-2026",
+      "detailPage": "https://sara.gov.my",
+      "priority": 6
+    },
+    {
+      "id": "e-kasih",
+      "name": "eKasih (Pangkalan Data Kemiskinan)",
+      "shortDesc": "Sistem pangkalan data miskin & miskin tegar untuk kelayakan bantuan tambahan.",
+      "category": "data",
+      "startDate": "2010-01-01",
+      "endDate": null,
+      "amountSummary": "Kelayakan tambahan SARA & JKM",
+      "target": "Isi rumah miskin / miskin tegar",
+      "officialLink": "https://ekasih.icu.gov.my",
+      "detailPage": "https://ekasih.icu.gov.my",
       "priority": 6
     }
   ]
