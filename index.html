@@ -3,96 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyBantuan & Tax Calc — Bantuan Kerajaan Malaysia</title>
-  <meta name="description" content="Satu hentian untuk semak kelayakan STR, SARA, bantuan JKM, pelepasan cukai LHDN dan subsidi kerajaan Malaysia.">
+  <title>MyBantuan & Tax Calc — Bantuan Kerajaan & Universiti Malaysia</title>
+  <meta name="description" content="Satu hentian untuk bantuan kerajaan Malaysia (STR, SARA, JKM, cukai) dan senarai universiti awam, swasta serta cawangan asing.">
   <link rel="stylesheet" href="css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
+    @media (max-width: 640px) { .hub-grid { grid-template-columns: 1fr; } }
+    .hub-card {
+      display: block; background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 24px; text-decoration: none; color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+    .hub-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .hub-card h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .hub-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
+    .hub-card .arrow { margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--accent); }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">
         <span class="logo-mark">MB</span>
-        <div class="logo-text">
-          <strong>MyBantuan</strong>
-          <span>& Tax Calc</span>
-        </div>
+        <div class="logo-text"><strong>MyBantuan</strong><span>& Tax Calc</span></div>
       </div>
       <nav class="main-nav">
-        <a href="index.html" class="active">Laman Utama</a>
-        <a href="#cara-guna">Cara Guna</a>
-        <a href="https://bantuantunai.hasil.gov.my" target="_blank" rel="noopener">Portal Rasmi</a>
+        <a href="bantuan/index.html">Bantuan</a>
+        <a href="universiti/index.html">Universiti</a>
       </nav>
     </div>
   </header>
-
-  <main>
+  <main class="container" style="padding-top:40px;padding-bottom:60px;max-width:720px">
     <section class="hero">
-      <div class="container">
-        <h1>Bantuan & Pelepasan Cukai Kerajaan</h1>
-        <p class="hero-desc">Semak kelayakan STR, SARA, bantuan JKM dan pelepasan cukai LHDN dalam satu tempat. Data dikemaskini mengikut tarikh rasmi.</p>
-        <div class="hero-meta">
-          <span id="last-updated">Dikemaskini: —</span>
-          <span class="dot">•</span>
-          <span>Sumber rasmi LHDN, MOF & JKM</span>
-        </div>
-      </div>
+      <h1>MyBantuan & Tax Calc</h1>
+      <p>Satu hentian untuk maklumat bantuan kerajaan Malaysia dan pilihan universiti. Pilih zon di bawah.</p>
     </section>
-
-    <section class="filter-bar">
-      <div class="container">
-        <div class="filter-group" role="tablist">
-          <button class="filter-btn active" data-filter="all">Semua</button>
-          <button class="filter-btn" data-filter="ongoing">Sedang Berjalan</button>
-          <button class="filter-btn" data-filter="upcoming">Akan Datang</button>
-          <button class="filter-btn" data-filter="ended">Telah Tamat</button>
-        </div>
-      </div>
-    </section>
-
-    <section class="bento-section">
-      <div class="container">
-        <div id="bento-grid" class="bento-grid" aria-live="polite"></div>
-        <p id="empty-state" class="empty-state" hidden>Tiada program dijumpai untuk penapis ini.</p>
-      </div>
-    </section>
-
-    <section id="cara-guna" class="howto">
-      <div class="container">
-        <h2>Cara Guna</h2>
-        <div class="howto-grid">
-          <div class="howto-item">
-            <span class="howto-num">1</span>
-            <p>Pilih kad bantuan yang anda minati.</p>
-          </div>
-          <div class="howto-item">
-            <span class="howto-num">2</span>
-            <p>Baca ringkasan & klik untuk lihat butiran lengkap.</p>
-          </div>
-          <div class="howto-item">
-            <span class="howto-num">3</span>
-            <p>Pergi ke portal rasmi untuk mohon atau semak status.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="hub-grid">
+      <a class="hub-card" href="bantuan/index.html">
+        <h2>Bantuan & Cukai</h2>
+        <p>STR, SARA, JKM, mySalam, PeKa B40, BUDI95, pelepasan cukai LHDN — kelayakan, cara mohon, dan pautan rasmi.</p>
+        <div class="arrow">Lihat bantuan →</div>
+      </a>
+      <a class="hub-card" href="universiti/index.html">
+        <h2>Universiti</h2>
+        <p>Senarai universiti awam, swasta dan cawangan asing di Malaysia — lokasi, bidang kekuatan, dan laman rasmi.</p>
+        <div class="arrow">Lihat universiti →</div>
+      </a>
+    </div>
   </main>
-
   <footer class="site-footer">
     <div class="container">
-      <p>Maklumat ini disusun daripada sumber rasmi kerajaan Malaysia. Sentiasa rujuk portal rasmi untuk keputusan akhir.</p>
-      <p class="footer-links">
-        <a href="https://bantuantunai.hasil.gov.my" target="_blank" rel="noopener">STR</a>
-        <a href="https://sara.gov.my" target="_blank" rel="noopener">SARA</a>
-        <a href="https://www.hasil.gov.my" target="_blank" rel="noopener">LHDN</a>
-        <a href="https://ebantuanjkm.jkm.gov.my" target="_blank" rel="noopener">JKM</a>
-      </p>
-      <p class="copyright">© 2026 MyBantuan & Tax Calc — Untuk rujukan sahaja.</p>
+      <p>Maklumat disusun daripada sumber rasmi. Rujuk portal kerajaan / universiti untuk keputusan akhir.</p>
+      <p class="copyright">© 2026 MyBantuan & Tax Calc</p>
     </div>
   </footer>
-
-  <script src="js/app.js"></script>
 </body>
 </html>
