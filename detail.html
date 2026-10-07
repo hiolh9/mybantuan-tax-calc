@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Butiran Bantuan — MyBantuan</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .detail-wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; }
+    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
+    .back-link:hover { color: var(--accent); }
+    .detail-status { margin-bottom: 12px; }
+    .detail-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
+    .detail-desc { color: var(--text-muted); margin-bottom: 28px; }
+    .detail-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .detail-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 8px; }
+    .detail-box p { font-size: 15px; }
+    .cta-btn {
+      display: inline-block;
+      margin-top: 24px;
+      background: var(--accent);
+      color: #fff !important;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 12px 22px;
+      border-radius: 8px;
+      text-decoration: none !important;
+    }
+    .cta-btn:hover { opacity: 0.92; }
+    .note { font-size: 13px; color: var(--text-muted); margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">MB</span>
+        <div class="logo-text">
+          <strong>MyBantuan</strong>
+          <span>& Tax Calc</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Laman Utama</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="detail-wrap">
+    <a href="index.html" class="back-link">← Kembali ke Laman Utama</a>
+    <div id="detail-content">
+      <p style="color:#6b7280;">Memuatkan butiran...</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Maklumat ini disusun daripada sumber rasmi kerajaan Malaysia. Sentiasa rujuk portal rasmi untuk keputusan akhir.</p>
+      <p class="copyright">© 2026 MyBantuan & Tax Calc</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const id = params.get('id');
+
+      function todayISO() {
+        return new Date().toISOString().slice(0, 10);
+      }
+      function getStatus(p, today) {
+        if (p.startDate > today) return 'upcoming';
+        if (p.endDate && p.endDate < today) return 'ended';
+        return 'ongoing';
+      }
+      function statusLabel(s) {
+        return { ongoing: 'Sedang Berjalan', upcoming: 'Akan Datang', ended: 'Telah Tamat' }[s] || s;
+      }
+
+      async function load() {
+        const res = await fetch('data/programs.json');
+        const data = await res.json();
+        const program = (data.programs || []).find(p => p.id === id);
+
+        const el = document.getElementById('detail-content');
+        if (!program) {
+          el.innerHTML = '<p>Program tidak dijumpai. <a href="index.html">Kembali</a></p>';
+          return;
+        }
+
+        const today = todayISO();
+        const status = getStatus(program, today);
+
+        el.innerHTML = `
+          <div class="detail-status">
+            <span class="card-status status-${status}">${statusLabel(status)}</span>
+          </div>
+          <h1 class="detail-title">${program.name}</h1>
+          <p class="detail-desc">${program.shortDesc}</p>
+
+          <div class="detail-box">
+            <h3>Jumlah / Manfaat</h3>
+            <p>${program.amountSummary}</p>
+          </div>
+          <div class="detail-box">
+            <h3>Sasaran</h3>
+            <p>${program.target}</p>
+          </div>
+          <div class="detail-box">
+            <h3>Tempoh</h3>
+            <p>${program.startDate}${program.endDate ? ' → ' + program.endDate : ' → Berterusan'}</p>
+          </div>
+
+          <a class="cta-btn" href="${program.officialLink}" target="_blank" rel="noopener">
+            Pergi ke Portal Rasmi →
+          </a>
+
+          <p class="note">
+            Halaman ini hanya menyediakan ringkasan. Untuk syarat lengkap, dokumen yang diperlukan dan permohonan, sila lawati portal rasmi kerajaan.
+            Status ditentukan secara automatik berdasarkan tarikh hari ini.
+          </p>
+        `;
+        document.title = program.name + ' — MyBantuan';
+      }
+
+      load().catch(() => {
+        document.getElementById('detail-content').innerHTML = '<p>Gagal memuatkan data.</p>';
+      });
+    })();
+  </script>
+</body>
+</html>

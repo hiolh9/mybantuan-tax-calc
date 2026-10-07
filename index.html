@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyBantuan & Tax Calc — Bantuan Kerajaan Malaysia</title>
+  <meta name="description" content="Satu hentian untuk semak kelayakan STR, SARA, bantuan JKM, pelepasan cukai LHDN dan subsidi kerajaan Malaysia.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <span class="logo-mark">MB</span>
+        <div class="logo-text">
+          <strong>MyBantuan</strong>
+          <span>& Tax Calc</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html" class="active">Laman Utama</a>
+        <a href="#cara-guna">Cara Guna</a>
+        <a href="https://bantuantunai.hasil.gov.my" target="_blank" rel="noopener">Portal Rasmi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Bantuan & Pelepasan Cukai Kerajaan</h1>
+        <p class="hero-desc">Semak kelayakan STR, SARA, bantuan JKM dan pelepasan cukai LHDN dalam satu tempat. Data dikemaskini mengikut tarikh rasmi.</p>
+        <div class="hero-meta">
+          <span id="last-updated">Dikemaskini: —</span>
+          <span class="dot">•</span>
+          <span>Sumber rasmi LHDN, MOF & JKM</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="filter-bar">
+      <div class="container">
+        <div class="filter-group" role="tablist">
+          <button class="filter-btn active" data-filter="all">Semua</button>
+          <button class="filter-btn" data-filter="ongoing">Sedang Berjalan</button>
+          <button class="filter-btn" data-filter="upcoming">Akan Datang</button>
+          <button class="filter-btn" data-filter="ended">Telah Tamat</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bento-section">
+      <div class="container">
+        <div id="bento-grid" class="bento-grid" aria-live="polite"></div>
+        <p id="empty-state" class="empty-state" hidden>Tiada program dijumpai untuk penapis ini.</p>
+      </div>
+    </section>
+
+    <section id="cara-guna" class="howto">
+      <div class="container">
+        <h2>Cara Guna</h2>
+        <div class="howto-grid">
+          <div class="howto-item">
+            <span class="howto-num">1</span>
+            <p>Pilih kad bantuan yang anda minati.</p>
+          </div>
+          <div class="howto-item">
+            <span class="howto-num">2</span>
+            <p>Baca ringkasan & klik untuk lihat butiran lengkap.</p>
+          </div>
+          <div class="howto-item">
+            <span class="howto-num">3</span>
+            <p>Pergi ke portal rasmi untuk mohon atau semak status.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Maklumat ini disusun daripada sumber rasmi kerajaan Malaysia. Sentiasa rujuk portal rasmi untuk keputusan akhir.</p>
+      <p class="footer-links">
+        <a href="https://bantuantunai.hasil.gov.my" target="_blank" rel="noopener">STR</a>
+        <a href="https://sara.gov.my" target="_blank" rel="noopener">SARA</a>
+        <a href="https://www.hasil.gov.my" target="_blank" rel="noopener">LHDN</a>
+        <a href="https://ebantuanjkm.jkm.gov.my" target="_blank" rel="noopener">JKM</a>
+      </p>
+      <p class="copyright">© 2026 MyBantuan & Tax Calc — Untuk rujukan sahaja.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
