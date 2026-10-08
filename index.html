@@ -36,69 +36,125 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
-  <!-- ===== 标题区：渐变 + 背景图（内嵌覆盖样式） ===== -->
+  <!-- ===== 顶部渐变区（notice-bar + header + intro 融合） ===== -->
   <style>
-    /* 想换图片：改 url('...') 里的路径即可 */
-    .home-intro {
+    /* 想换图片：改 url('...') 路径即可 */
+    .hero-wrap {
       position: relative;
-      overflow: hidden;
       color: #fff;
-      border-bottom: 1px solid var(--border, #e2e8f2);
 
-      /* 上层：半透明渐变（rgba 最后一码 = 透明度）
-         中层：暗化层（让白字更清楚）
-         下层：背景图片 */
+      /* 第1层：右上角柔光
+         第2层：蓝青渐变（rgba 最后一码 = 透明度）
+         第3层：暗化层
+         第4层：背景图 */
       background:
+        radial-gradient(700px 340px at 88% -22%, rgba(255,255,255,.20), transparent 70%),
         linear-gradient(
           135deg,
-          rgba(11, 61, 145, .92) 0%,
-          rgba(30, 99, 214, .80) 45%,
-          rgba(34, 184, 176, .78) 100%
+          rgba(11, 61, 145, .94) 0%,
+          rgba(30, 99, 214, .82) 45%,
+          rgba(34, 184, 176, .80) 100%
         ),
-        linear-gradient(rgba(4, 18, 45, .22), rgba(4, 18, 45, .22)),
-        url('home.avif') center / cover no-repeat;
+        linear-gradient(rgba(4, 18, 45, .20), rgba(4, 18, 45, .20)),
+        url('assets/hero-home.jpg') center / cover no-repeat;
     }
 
-    /* 右上角柔光，增加层次感 */
-    .home-intro::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(620px 320px at 88% -25%, rgba(255,255,255,.22), transparent 70%);
-      pointer-events: none;
+    /* ---- 免责声明条：透明融入 ---- */
+    .hero-wrap .notice-bar {
+      background: transparent;
+      color: rgba(255, 255, 255, .78);
+      border-bottom: 1px solid rgba(255, 255, 255, .14);
     }
-    .home-intro .container { position: relative; z-index: 1; }
+    .hero-wrap .notice-bar strong { color: #fff; }
 
-    /* 文字：白色 + 轻微阴影 */
-    .home-intro h1 {
+    /* ---- 导航栏：透明融入渐变 ---- */
+    .hero-wrap .site-header {
+      background: transparent;
+      border-bottom: 1px solid rgba(255, 255, 255, .18);
+      transition: background .2s, box-shadow .2s, border-color .2s;
+    }
+
+    /* Logo 在深色背景上 */
+    .hero-wrap .logo-mark {
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .42);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .hero-wrap .logo-text strong { color: #fff; }
+    .hero-wrap .logo-text span   { color: rgba(255, 255, 255, .72); }
+
+    /* 导航链接：白字 */
+    .hero-wrap .main-nav a {
+      color: rgba(255, 255, 255, .86);
+      transition: color .15s, border-color .15s;
+    }
+    .hero-wrap .main-nav a:hover,
+    .hero-wrap .main-nav a.active {
+      color: #fff;
+      border-bottom-color: #fff;
+    }
+
+    /* ---- 滚动后：导航栏变白，恢复正常配色 ---- */
+    .hero-wrap .site-header.is-stuck {
+      background: rgba(255, 255, 255, .96);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border-bottom-color: var(--border, #e2e8f2);
+      box-shadow: 0 1px 12px rgba(11, 61, 145, .08);
+    }
+    .hero-wrap .site-header.is-stuck .logo-mark {
+      background: linear-gradient(135deg, #0b3d91, #1e63d6 55%, #22b8b0);
+      border-color: transparent;
+      color: #fff;
+    }
+    .hero-wrap .site-header.is-stuck .logo-text strong { color: var(--text, #121826); }
+    .hero-wrap .site-header.is-stuck .logo-text span   { color: var(--text-muted, #5a6577); }
+    .hero-wrap .site-header.is-stuck .main-nav a { color: var(--text, #121826); }
+    .hero-wrap .site-header.is-stuck .main-nav a:hover,
+    .hero-wrap .site-header.is-stuck .main-nav a.active {
+      color: var(--accent, #1e63d6);
+      border-bottom-color: var(--accent, #1e63d6);
+    }
+
+    /* ---- 标题区内容 ---- */
+    .hero-wrap .home-intro {
+      background: transparent;
+      border-bottom: 0;
+    }
+    .hero-wrap .home-intro h1 {
       color: #fff;
       text-shadow: 0 2px 16px rgba(0, 0, 0, .22);
     }
-    .home-intro p {
+    .hero-wrap .home-intro p {
       color: rgba(255, 255, 255, .90);
       text-shadow: 0 1px 10px rgba(0, 0, 0, .18);
     }
 
-    /* chips 在深色背景上换成玻璃感 */
-    .home-intro .chips-label { color: rgba(255, 255, 255, .92); }
-    .home-intro .chip {
+    /* chips 玻璃感 */
+    .hero-wrap .chips-label { color: rgba(255, 255, 255, .92); }
+    .hero-wrap .chip {
       background: rgba(255, 255, 255, .12);
       border: 1px solid rgba(255, 255, 255, .34);
       color: #fff;
-      backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
       transition: background .15s, border-color .15s;
     }
-    .home-intro .chip:hover {
+    .hero-wrap .chip:hover {
       background: rgba(255, 255, 255, .24);
       border-color: #fff;
       color: #fff;
       text-decoration: none;
     }
 
-    /* 移动端少一点留白 */
+    /* 让 hero 底部有一点收尾留白 */
+    .hero-wrap .home-intro .container { padding-bottom: 30px; }
+
     @media (max-width: 640px) {
-      .home-intro .container { padding-top: 26px; padding-bottom: 22px; }
+      .hero-wrap .home-intro .container { padding-top: 26px; padding-bottom: 22px; }
     }
   </style>
 
@@ -209,28 +265,28 @@
 </head>
 <body>
 
-  <div class="notice-bar">
-    <div class="container"><strong>Bukan laman web rasmi kerajaan.</strong> Kami hanya menyusun maklumat awam dan menyediakan pautan ke sumber rasmi.</div>
-  </div>
+  <!-- ===== 顶部渐变区：免责声明 + 导航 + 标题 ===== -->
+  <div class="hero-wrap">
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="logo" href="index.html" style="text-decoration:none">
-        <span class="logo-mark">BI</span>
-        <span class="logo-text"><strong>Bantuan Info</strong><span>.com</span></span>
-      </a>
-      <nav class="main-nav" aria-label="Utama">
-        <a href="bantuan/index.html">Bantuan</a>
-        <a href="bantuan/biasiswa.html">Biasiswa</a>
-        <a href="universiti/index.html">Universiti</a>
-        <a href="#tentang">Tentang</a>
-      </nav>
+    <div class="notice-bar">
+      <div class="container"><strong>Bukan laman web rasmi kerajaan.</strong> Kami hanya menyusun maklumat awam dan menyediakan pautan ke sumber rasmi.</div>
     </div>
-  </header>
 
-  <main>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" style="text-decoration:none">
+          <span class="logo-mark">BI</span>
+          <span class="logo-text"><strong>Bantuan Info</strong><span>.com</span></span>
+        </a>
+        <nav class="main-nav" aria-label="Utama">
+          <a href="bantuan/index.html">Bantuan</a>
+          <a href="bantuan/biasiswa.html">Biasiswa</a>
+          <a href="universiti/index.html">Universiti</a>
+          <a href="#tentang">Tentang</a>
+        </nav>
+      </div>
+    </header>
 
-    <!-- ===== INTRO（渐变盖住背景图） ===== -->
     <section class="home-intro">
       <div class="container">
         <h1>Bantuan Info — Bantuan Kerajaan, Biasiswa &amp; Universiti Malaysia</h1>
@@ -248,7 +304,10 @@
       </div>
     </section>
 
-    <div class="container" style="padding-bottom:60px">
+  </div>
+
+  <main>
+    <div class="container" style="padding-top:40px;padding-bottom:60px">
 
       <!-- ===== TOP STORIES ===== -->
       <div class="top-grid">
@@ -489,6 +548,17 @@
       Object.keys(map).forEach(function (id) {
         var el = document.getElementById(id); if (el) io.observe(el);
       });
+    })();
+
+    // 导航栏滚动后由透明变白
+    (function () {
+      var header = document.querySelector('.hero-wrap .site-header');
+      if (!header) return;
+      var onScroll = function () {
+        header.classList.toggle('is-stuck', window.scrollY > 40);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
     })();
   </script>
 </body>
