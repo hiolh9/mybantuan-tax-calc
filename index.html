@@ -10,7 +10,7 @@
   <meta name="keywords" content="bantuan kerajaan, STR, SARA, JKM, mySalam, PeKa B40, BUDI95, biasiswa, PTPTN, JPA, MARA, universiti Malaysia, pelepasan cukai LHDN">
   <meta name="author" content="Bantuan Info">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#0b3d91">
   <link rel="canonical" href="https://bantuaninfo.com/">
 
   <!-- ===== Open Graph ===== -->
@@ -35,6 +35,72 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- ===== 标题区：渐变 + 背景图（内嵌覆盖样式） ===== -->
+  <style>
+    /* 想换图片：改 url('...') 里的路径即可 */
+    .home-intro {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      border-bottom: 1px solid var(--border, #e2e8f2);
+
+      /* 上层：半透明渐变（rgba 最后一码 = 透明度）
+         中层：暗化层（让白字更清楚）
+         下层：背景图片 */
+      background:
+        linear-gradient(
+          135deg,
+          rgba(11, 61, 145, .92) 0%,
+          rgba(30, 99, 214, .80) 45%,
+          rgba(34, 184, 176, .78) 100%
+        ),
+        linear-gradient(rgba(4, 18, 45, .22), rgba(4, 18, 45, .22)),
+        url('home.avif') center / cover no-repeat;
+    }
+
+    /* 右上角柔光，增加层次感 */
+    .home-intro::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(620px 320px at 88% -25%, rgba(255,255,255,.22), transparent 70%);
+      pointer-events: none;
+    }
+    .home-intro .container { position: relative; z-index: 1; }
+
+    /* 文字：白色 + 轻微阴影 */
+    .home-intro h1 {
+      color: #fff;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, .22);
+    }
+    .home-intro p {
+      color: rgba(255, 255, 255, .90);
+      text-shadow: 0 1px 10px rgba(0, 0, 0, .18);
+    }
+
+    /* chips 在深色背景上换成玻璃感 */
+    .home-intro .chips-label { color: rgba(255, 255, 255, .92); }
+    .home-intro .chip {
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .34);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: background .15s, border-color .15s;
+    }
+    .home-intro .chip:hover {
+      background: rgba(255, 255, 255, .24);
+      border-color: #fff;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    /* 移动端少一点留白 */
+    @media (max-width: 640px) {
+      .home-intro .container { padding-top: 26px; padding-bottom: 22px; }
+    }
+  </style>
 
   <!-- ===== Structured Data ===== -->
   <script type="application/ld+json">
@@ -164,7 +230,7 @@
 
   <main>
 
-    <!-- ===== INTRO ===== -->
+    <!-- ===== INTRO（渐变盖住背景图） ===== -->
     <section class="home-intro">
       <div class="container">
         <h1>Bantuan Info — Bantuan Kerajaan, Biasiswa &amp; Universiti Malaysia</h1>
