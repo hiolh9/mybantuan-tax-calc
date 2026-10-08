@@ -244,7 +244,6 @@ a:hover { text-decoration: underline; }
   text-align: center;
 }
 
-/* ===== Bento section labels ===== */
 .section-label {
   font-size: 13px;
   font-weight: 600;
@@ -254,7 +253,6 @@ a:hover { text-decoration: underline; }
   margin: 8px 0 12px;
 }
 
-/* ===== Responsive ===== */
 @media (max-width: 900px) {
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .card-wide, .card-tall { grid-column: span 2; }
@@ -344,7 +342,6 @@ a:hover { text-decoration: underline; }
   color: var(--text, #1a1a1a);
 }
 
-/* Checklist — disc bullets */
 .check-list {
   list-style: disc;
   padding-left: 1.4rem;
@@ -357,16 +354,17 @@ a:hover { text-decoration: underline; }
   padding-left: 0.15rem;
 }
 
-/* Steps — custom counter: always 1,2,3,4 (not 2,4,6,8) */
+/* Steps: custom counter — always 1,2,3,4 (fixes 2,4,6,8 bug from list-style + reset) */
 .steps-list {
-  list-style: none;
-  padding-left: 0;
+  list-style: none !important;
+  padding-left: 0 !important;
   margin: 0;
   counter-reset: step-counter;
   line-height: 1.65;
   font-size: 15px;
 }
 .steps-list > li {
+  list-style: none !important;
   counter-increment: step-counter;
   position: relative;
   padding-left: 2.25rem;
