@@ -2,21 +2,24 @@
 <html lang="ms">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Biasiswa & Pinjaman Pendidikan Malaysia | MyBantuan</title>
-  <meta name="description" content="Senarai biasiswa, pinjaman PTPTN dan penajaan pendidikan — JPA, MARA, Petronas, Khazanah, Maybank dan lain-lain. Data dikemaskini, pautan rasmi.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Biasiswa &amp; Pinjaman Pendidikan | MyBantuan</title>
+  <meta name="description" content="Senarai biasiswa dan pinjaman pendidikan Malaysia — JPA, MARA, PTPTN, PETRONAS, Khazanah dan lain-lain.">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .tag { display: inline-block; font-size: 11px; padding: 3px 8px; background: #f0fdf4; color: #166534; border-radius: 999px; font-weight: 500; }
-    .tag-loan { background: #fff7ed; color: #b45309; }
-    .tag-corp { background: #eff6ff; color: #1d4ed8; }
-    .tag-found { background: #faf5ff; color: #7c3aed; }
-    .filter-bar { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; align-items: center; }
-    .filter-bar select, .filter-bar input { font-family: inherit; font-size: 14px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
-    .filter-bar input { min-width: 160px; flex: 1; }
-    .count-label { font-size: 13px; color: var(--text-muted); }
-    .disclaimer { font-size: 13px; color: var(--text-muted); background: #fffbeb; border-left: 3px solid #f59e0b; padding: 10px 14px; margin: 12px 0 20px; border-radius: 0 6px 6px 0; }
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 24px; }
+    .filters input, .filters select {
+      font: inherit; padding: 8px 12px; border: 1px solid var(--border);
+      border-radius: 8px; background: var(--surface); min-width: 140px;
+    }
+    .filters input { flex: 1; min-width: 180px; }
+    .card-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
+    .tag-loan { background: #eff6ff; color: #2563eb; }
+    .tag-corp { background: #f5f3ff; color: #7c3aed; }
+    .tag-found { background: #fff7ed; color: #c2410c; }
+    .count { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
   </style>
 </head>
 <body>
@@ -24,7 +27,7 @@
     <div class="container header-inner">
       <a href="../index.html" class="logo" style="text-decoration:none;color:inherit">
         <span class="logo-mark">MB</span>
-        <div class="logo-text"><strong>MyBantuan</strong><span>& Tax Calc</span></div>
+        <div class="logo-text"><strong>MyBantuan</strong><span>&amp; Tax Calc</span></div>
       </a>
       <nav class="main-nav">
         <a href="../index.html">Utama</a>
@@ -34,62 +37,74 @@
       </nav>
     </div>
   </header>
-  <main class="container" style="padding-top:28px;padding-bottom:48px">
-    <section class="hero" style="padding-top:0">
-      <h1>Biasiswa & Pinjaman Pendidikan</h1>
-      <p class="hero-desc">Penajaan kerajaan, GLC, yayasan dan pinjaman PTPTN. Klik kad untuk ke portal rasmi. Sentiasa sahkan tarikh dan syarat di laman rasmi.</p>
-    </section>
-    <div class="disclaimer">Maklumat digubal semula daripada sumber rasmi (JPA, MARA, PTPTN, Yayasan Khazanah, dll). Tarikh tutup dan syarat boleh berubah — gunakan pautan rasmi sebagai rujukan akhir.</div>
-    <div class="filter-bar">
-      <input type="search" id="search" placeholder="Cari nama / penyedia / bidang..." aria-label="Cari">
-      <select id="filter-provider" aria-label="Jenis penyedia">
+
+  <main class="container" style="padding: 32px 20px 60px;">
+    <h1 style="font-size:1.5rem;margin-bottom:6px">Biasiswa &amp; Pinjaman Pendidikan</h1>
+    <p style="color:var(--text-muted);margin-bottom:8px">Klik kad untuk panduan lengkap. Butang permohonan rasmi ada di halaman detail.</p>
+    <p class="count"><span id="count">—</span> program</p>
+
+    <div class="filters">
+      <input type="search" id="search" placeholder="Cari nama / penyedia..." autocomplete="off">
+      <select id="f-prov">
         <option value="">Semua penyedia</option>
         <option value="government">Kerajaan</option>
         <option value="corporate">Korporat / GLC</option>
         <option value="foundation">Yayasan</option>
       </select>
-      <select id="filter-type" aria-label="Jenis bantuan">
+      <select id="f-type">
         <option value="">Semua jenis</option>
         <option value="scholarship">Biasiswa</option>
         <option value="loan">Pinjaman</option>
         <option value="convertible-loan">Pinjaman Boleh Ubah</option>
       </select>
-      <select id="filter-level" aria-label="Peringkat">
+      <select id="f-level">
         <option value="">Semua peringkat</option>
         <option value="spm">SPM / Pra-U</option>
+        <option value="foundation">Asasi</option>
         <option value="diploma">Diploma</option>
         <option value="degree">Ijazah</option>
-        <option value="master">Sarjana / PhD</option>
+        <option value="master">Sarjana</option>
+        <option value="phd">PhD</option>
       </select>
-      <span class="count-label"><span id="count">0</span> program</span>
     </div>
-    <div class="bento-grid" id="grid"><p style="color:var(--text-muted)">Memuatkan...</p></div>
+
+    <div class="bento-grid" id="grid">
+      <p>Memuat...</p>
+    </div>
   </main>
+
   <footer class="site-footer">
-    <div class="container">
-      <p>Data dikongsi dengan zon Universiti (paparan berkaitan universiti akan ditambah). Rujuk portal rasmi untuk keputusan akhir.</p>
-      <p class="copyright">© 2026 MyBantuan & Tax Calc</p>
-    </div>
+    <div class="container"><p class="copyright">© 2026 MyBantuan &amp; Tax Calc</p></div>
   </footer>
+
   <script>
-  (function () {
-    const PROVIDER_LABEL = { government: 'Kerajaan', corporate: 'Korporat', foundation: 'Yayasan' };
+    const PROVIDER_LABEL = { government: 'Kerajaan', corporate: 'Korporat / GLC', foundation: 'Yayasan' };
     const TYPE_LABEL = { scholarship: 'Biasiswa', loan: 'Pinjaman', 'convertible-loan': 'Pinjaman Boleh Ubah' };
     const TYPE_TAG = { scholarship: 'tag', loan: 'tag tag-loan', 'convertible-loan': 'tag tag-loan' };
     const PROVIDER_TAG = { government: 'tag', corporate: 'tag tag-corp', foundation: 'tag tag-found' };
+
     function card(s) {
       const tags = [
         `<span class="${PROVIDER_TAG[s.providerType] || 'tag'}">${PROVIDER_LABEL[s.providerType] || s.providerType}</span>`,
         `<span class="${TYPE_TAG[s.aidType] || 'tag'}">${TYPE_LABEL[s.aidType] || s.aidType}</span>`
       ].join('');
-      const deadline = s.deadline ? `<span>Tutup: ${s.deadline}</span>` : `<span>${s.statusNote || 'Semak portal rasmi'}</span>`;
-      return `<a class="card card-medium" href="${s.applyUrl}" target="_blank" rel="noopener">
-        <div class="card-top">${tags}</div>
-        <h2 class="card-title">${s.name}</h2>
-        <p class="card-desc">${s.eligibilitySummary || s.amountSummary || ''}</p>
-        <div class="card-meta"><span class="card-amount">${s.amountSummary || ''}</span>${deadline}<span>${s.provider}</span></div>
-      </a>`;
+      const deadline = s.deadline
+        ? `<span>Tutup: ${s.deadline}</span>`
+        : `<span>${s.statusNote || 'Semak portal rasmi'}</span>`;
+      // Always local detail page first — official apply button is on the detail page
+      return `
+        <a class="card card-medium" href="${s.detailPage || s.id + '.html'}">
+          <div class="card-top">${tags}</div>
+          <h2 class="card-title">${s.name}</h2>
+          <p class="card-desc">${s.eligibilitySummary || s.amountSummary || ''}</p>
+          <div class="card-meta">
+            <span class="card-amount">${s.amountSummary || ''}</span>
+            ${deadline}
+            <span>${s.provider}</span>
+          </div>
+        </a>`;
     }
+
     async function init() {
       const grid = document.getElementById('grid');
       let all = [];
@@ -98,29 +113,38 @@
         const data = await res.json();
         all = data.scholarships || [];
       } catch (e) {
-        grid.innerHTML = '<p>Gagal memuat data. Pastikan data/scholarships.json wujud.</p>';
+        grid.innerHTML = '<p>Gagal memuat data.</p>';
         return;
       }
+
       const search = document.getElementById('search');
-      const fProv = document.getElementById('filter-provider');
-      const fType = document.getElementById('filter-type');
-      const fLevel = document.getElementById('filter-level');
+      const fProv = document.getElementById('f-prov');
+      const fType = document.getElementById('f-type');
+      const fLevel = document.getElementById('f-level');
+
       function apply() {
         const q = (search.value || '').toLowerCase().trim();
         let list = all.slice();
         if (fProv.value) list = list.filter(s => s.providerType === fProv.value);
         if (fType.value) list = list.filter(s => s.aidType === fType.value);
         if (fLevel.value) list = list.filter(s => (s.studyLevels || []).includes(fLevel.value));
-        if (q) list = list.filter(s => s.name.toLowerCase().includes(q) || s.provider.toLowerCase().includes(q) || (s.fields || []).some(f => f.includes(q)) || (s.tags || []).some(t => t.includes(q)));
+        if (q) {
+          list = list.filter(s =>
+            s.name.toLowerCase().includes(q) ||
+            (s.provider || '').toLowerCase().includes(q) ||
+            (s.tags || []).some(t => t.toLowerCase().includes(q))
+          );
+        }
         list.sort((a, b) => (b.priority || 0) - (a.priority || 0));
         grid.innerHTML = list.map(card).join('') || '<p>Tiada program dijumpai.</p>';
         document.getElementById('count').textContent = list.length;
       }
+
       [search, fProv, fType, fLevel].forEach(el => el.addEventListener(el === search ? 'input' : 'change', apply));
       apply();
     }
+
     document.addEventListener('DOMContentLoaded', init);
-  })();
   </script>
 </body>
 </html>
