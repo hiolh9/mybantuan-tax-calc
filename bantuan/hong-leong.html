@@ -8,6 +8,62 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ===== 渐变标题区 ===== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 40px 0 56px;
+      color: #fff;
+      /* 想换色只改这一行 */
+      background: linear-gradient(135deg, #0b3d91 0%, #1e63d6 45%, #22b8b0 100%);
+    }
+    /* 右上角一层柔光，让渐变不那么单调 */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(560px 280px at 88% -20%, rgba(255,255,255,.28), transparent 70%);
+      pointer-events: none;
+    }
+    .hero .container { position: relative; z-index: 1; }
+
+    /* 面包屑改成白字 */
+    .hero .crumbs { color: rgba(255,255,255,.72); margin-bottom: 18px; }
+    .hero .crumbs a { color: #fff; text-decoration: none; }
+    .hero .crumbs a:hover { text-decoration: underline; }
+
+    /* 标签（Yayasan / Biasiswa）用半透明玻璃感 */
+    .hero .pill {
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.38);
+      color: #fff;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+
+    /* 白字标题 + 副说明 */
+    .hero .detail-title {
+      color: #fff;
+      margin: 14px 0 10px;
+      text-shadow: 0 2px 12px rgba(0,0,0,.18);
+    }
+    .hero .detail-desc {
+      color: rgba(255,255,255,.88);
+      max-width: 60ch;
+      margin: 0;
+    }
+
+    /* 让白色内容区从渐变下方开始 */
+    .detail { padding-top: 0; }
+    .detail-body { padding: 40px 0 64px; }
+
+    /* 手机上收一点留白 */
+    @media (max-width: 640px) {
+      .hero { padding: 28px 0 40px; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -25,57 +81,67 @@
     </div>
   </header>
 
-  <main class="container detail">
+  <main class="detail">
 
-    <nav class="crumbs" aria-label="Breadcrumb">
-      <a href="../index.html">Laman Utama</a><span aria-hidden="true">›</span><a href="biasiswa.html">Biasiswa</a><span aria-hidden="true">›</span><span>Hong Leong Foundation</span>
-    </nav>
+    <!-- ===== 渐变背景 + 白色标题 ===== -->
+    <section class="hero">
+      <div class="container">
+        <nav class="crumbs" aria-label="Breadcrumb">
+          <a href="../index.html">Laman Utama</a><span aria-hidden="true">›</span><a href="biasiswa.html">Biasiswa</a><span aria-hidden="true">›</span><span>Hong Leong Foundation</span>
+        </nav>
 
-    <header class="detail-head">
-      <div class="pills"><span class="pill pill-found">Yayasan</span><span class="pill">Biasiswa</span></div>
-      <h1 class="detail-title">Hong Leong Foundation Scholarship</h1>
-      <p class="detail-desc">Penekanan kepada pelajar memerlukan dan merit.</p>
-    </header>
+        <div class="pills">
+          <span class="pill pill-found">Yayasan</span>
+          <span class="pill">Biasiswa</span>
+        </div>
 
-    <div class="detail-grid">
-      <div class="content">
-        <section class="block" aria-labelledby="h-syarat">
-          <h2 id="h-syarat">Syarat</h2>
-          <ul class="check-list">
-            <li>Warganegara</li>
-            <li>Akademik baik</li>
-            <li>Keutamaan pelajar memerlukan</li>
-          </ul>
-        </section>
-
-        <section class="block" aria-labelledby="h-langkah">
-          <h2 id="h-langkah">Langkah</h2>
-          <ol class="steps-list">
-            <li><span><a href="https://www.hongleongfoundation.org" target="_blank" rel="noopener">hongleongfoundation.org</a></span></li>
-            <li><span>Mohon</span></li>
-            <li><span>Pemilihan</span></li>
-            <li><span>Tawaran</span></li>
-          </ol>
-        </section>
-
-        <p class="note">Sediakan bukti keperluan kewangan jika relevan.</p>
+        <h1 class="detail-title">Hong Leong Foundation Scholarship</h1>
+        <p class="detail-desc">Penekanan kepada pelajar memerlukan dan merit.</p>
       </div>
+    </section>
 
-      <aside class="side" aria-label="Pautan rasmi dan ringkasan">
-        <div class="panel cta-card">
-          <h2>Mohon di portal rasmi</h2>
-          <p>Permohonan dibuat terus di laman penyedia biasiswa.</p>
-          <a class="cta-btn" href="https://www.hongleongfoundation.org" target="_blank" rel="noopener">Buka portal Hong Leong Foundation <span aria-hidden="true">↗</span></a>
-          <div class="cta-meta">hongleongfoundation.org · dibuka di tab baharu</div>
+    <!-- ===== 下面是资料内容 ===== -->
+    <div class="container detail-body">
+      <div class="detail-grid">
+        <div class="content">
+          <section class="block" aria-labelledby="h-syarat">
+            <h2 id="h-syarat">Syarat</h2>
+            <ul class="check-list">
+              <li>Warganegara</li>
+              <li>Akademik baik</li>
+              <li>Keutamaan pelajar memerlukan</li>
+            </ul>
+          </section>
+
+          <section class="block" aria-labelledby="h-langkah">
+            <h2 id="h-langkah">Langkah</h2>
+            <ol class="steps-list">
+              <li><span><a href="https://www.hongleongfoundation.org" target="_blank" rel="noopener">hongleongfoundation.org</a></span></li>
+              <li><span>Mohon</span></li>
+              <li><span>Pemilihan</span></li>
+              <li><span>Tawaran</span></li>
+            </ol>
+          </section>
+
+          <p class="note">Sediakan bukti keperluan kewangan jika relevan.</p>
         </div>
-        <div class="panel facts">
-          <h2>Ringkasan</h2>
-          <dl>
-            <div><dt>Penyedia</dt><dd>Yayasan</dd></div>
-            <div><dt>Jenis</dt><dd>Biasiswa</dd></div>
-          </dl>
-        </div>
-      </aside>
+
+        <aside class="side" aria-label="Pautan rasmi dan ringkasan">
+          <div class="panel cta-card">
+            <h2>Mohon di portal rasmi</h2>
+            <p>Permohonan dibuat terus di laman penyedia biasiswa.</p>
+            <a class="cta-btn" href="https://www.hongleongfoundation.org" target="_blank" rel="noopener">Buka portal Hong Leong Foundation <span aria-hidden="true">↗</span></a>
+            <div class="cta-meta">hongleongfoundation.org · dibuka di tab baharu</div>
+          </div>
+          <div class="panel facts">
+            <h2>Ringkasan</h2>
+            <dl>
+              <div><dt>Penyedia</dt><dd>Yayasan</dd></div>
+              <div><dt>Jenis</dt><dd>Biasiswa</dd></div>
+            </dl>
+          </div>
+        </aside>
+      </div>
     </div>
   </main>
 
