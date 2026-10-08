@@ -2,19 +2,22 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #f7f8fa;
+  --bg: #f6f8fc;
   --surface: #ffffff;
-  --text: #1a1d23;
-  --text-muted: #5c6570;
-  --border: #e2e5ea;
-  --accent: #0d6e4f;
-  --accent-dark: #0a5a41;
-  --accent-soft: #e8f5f0;
-  --ongoing: #0d6e4f;
-  --upcoming: #b45309;
+  --text: #121826;
+  --text-muted: #5a6577;
+  --border: #e2e8f2;
+  --accent: #1e63d6;
+  --accent-dark: #0b3d91;
+  --accent-soft: #e8effd;
+  --teal: #14a39a;
+  --teal-soft: #e4f5f3;
+  --teal-deep: #0f8b82;
+  --ongoing: #1e63d6;
+  --upcoming: #0f8b82;
   --ended: #6b7280;
   --radius: 12px;
-  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow: 0 1px 3px rgba(11,61,145,0.08);
   --font: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
@@ -31,7 +34,7 @@ body {
 
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
-:focus-visible { outline: 3px solid #f59e0b; outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; border-radius: 4px; }
 
 .container { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
@@ -44,7 +47,9 @@ a:hover { text-decoration: underline; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 56px; }
 .logo { display: flex; align-items: center; gap: 10px; }
 .logo-mark {
-  width: 32px; height: 32px; background: var(--accent); color: #fff;
+  width: 32px; height: 32px;
+  background: linear-gradient(135deg, #0b3d91, #1e63d6 55%, #22b8b0);
+  color: #fff;
   font-size: 12px; font-weight: 700; border-radius: 8px; display: grid; place-items: center;
 }
 .logo-text { display: flex; flex-direction: column; line-height: 1.15; }
@@ -74,9 +79,9 @@ a:hover { text-decoration: underline; }
    ===================================================== */
 
 /* Disclaimer strip */
-.notice-bar { background: #0f172a; color: #e2e8f0; font-size: 12.5px; }
+.notice-bar { background: #0b2d6b; color: #dbe6fa; font-size: 12.5px; }
 .notice-bar .container { padding-top: 7px; padding-bottom: 7px; }
-.notice-bar strong { color: #fff; }
+.notice-bar strong { color: #ffffff; }
 
 /* Intro band */
 .home-intro { background: var(--surface); border-bottom: 1px solid var(--border); }
@@ -110,19 +115,21 @@ a:hover { text-decoration: underline; }
 .story h2 a { color: var(--text); text-decoration: none; }
 .story h2 a::after { content: ""; position: absolute; inset: 0; }
 .story p { margin-top: 8px; font-size: 14px; color: var(--text-muted); line-height: 1.55; }
-.story:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+.story:hover { box-shadow: 0 4px 16px rgba(11,61,145,0.10); }
 .story:hover h2 a { color: var(--accent); }
 .story-tag { display: inline-block; font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
 
 .story-lead {
-  grid-row: 1 / span 2; background: var(--accent); border-color: var(--accent-dark);
-  border-top-color: #34d399; padding: 32px 30px; display: flex; flex-direction: column; justify-content: flex-end;
+  grid-row: 1 / span 2;
+  background: linear-gradient(135deg, #0b3d91 0%, #1e63d6 45%, #22b8b0 100%);
+  border-color: transparent; border-top-color: transparent;
+  padding: 32px 30px; display: flex; flex-direction: column; justify-content: flex-end;
   min-height: 300px;
 }
 .story-lead h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); letter-spacing: -0.03em; line-height: 1.15; }
 .story-lead h2 a, .story-lead h2 a:hover { color: #fff; }
-.story-lead p { color: #d1fae5; font-size: 15px; max-width: 460px; }
-.story-lead .story-tag { color: #a7f3d0; }
+.story-lead p { color: #cfe0fb; font-size: 15px; max-width: 460px; }
+.story-lead .story-tag { color: #a9e8e1; }
 .story-lead:hover h2 a { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
 
 /* Directory columns */
@@ -185,13 +192,13 @@ a:hover { text-decoration: underline; }
 }
 .steps strong { display: block; color: var(--text); font-size: 14.5px; margin-bottom: 2px; }
 
-/* Callout */
+/* Callout —— 改为蓝色系提示 */
 .callout {
-  background: #fffbeb; border: 1px solid #fde68a; border-left: 4px solid var(--upcoming);
+  background: #eef4fe; border: 1px solid #c9dcfb; border-left: 4px solid var(--accent);
   border-radius: 6px; padding: 18px 20px; margin: 20px 0;
 }
-.callout p { margin-bottom: 0; font-size: 14.5px; color: #78350f; }
-.callout strong { color: #78350f; }
+.callout p { margin-bottom: 0; font-size: 14.5px; color: #17367a; }
+.callout strong { color: #17367a; }
 
 /* FAQ */
 .faq { display: grid; gap: 8px; margin-top: 18px; }
