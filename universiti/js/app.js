@@ -6,15 +6,20 @@
     const strengths = (u.strengths || []).slice(0, 4).map(s =>
       `<span class="tag">${s}</span>`
     ).join("");
+    const href = u.detailPage || u.website;
+    const ext = (href || "").startsWith("http");
+    const campusHint = (u.campuses && u.campuses.length > 1)
+      ? ` · ${u.campuses.length} kampus`
+      : "";
     return `
-      <a class="card card-medium" href="${u.website}" target="_blank" rel="noopener">
+      <a class="card card-medium" href="${href}" ${ext ? 'target="_blank" rel="noopener"' : ''}>
         <div class="card-top">
           <span class="card-status ${TYPE_CLASS[u.type] || ""}">${TYPE_LABEL[u.type] || u.type}</span>
         </div>
         <h2 class="card-title">${u.shortName}</h2>
         <p class="card-desc">${u.name}</p>
         <div class="card-meta">
-          <span>📍 ${u.city}, ${u.state}</span>
+          <span>📍 ${u.city}, ${u.state}${campusHint}</span>
         </div>
         <div class="card-tags" style="margin-top:10px;display:flex;flex-wrap:wrap;gap:6px">
           ${strengths}
@@ -53,13 +58,24 @@
       const q = (searchInput.value || "").toLowerCase().trim();
       let list = all.slice();
       if (type) list = list.filter(u => u.type === type);
-      if (state) list = list.filter(u => u.state === state);
+      if (state) {
+        list = list.filter(u =>
+          u.state === state ||
+          (u.campuses || []).some(c => c.state === state) ||
+          (u.state || "").includes(state)
+        );
+      }
       if (q) {
         list = list.filter(u =>
           u.name.toLowerCase().includes(q) ||
           u.shortName.toLowerCase().includes(q) ||
           (u.strengths || []).some(s => s.toLowerCase().includes(q)) ||
-          u.city.toLowerCase().includes(q)
+          u.city.toLowerCase().includes(q) ||
+          (u.campuses || []).some(c =>
+            (c.city || "").toLowerCase().includes(q) ||
+            (c.state || "").toLowerCase().includes(q) ||
+            (c.name || "").toLowerCase().includes(q)
+          )
         );
       }
       list.sort((a, b) => (b.priority || 0) - (a.priority || 0));
