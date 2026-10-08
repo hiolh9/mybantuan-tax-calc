@@ -5,22 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Biasiswa &amp; Pinjaman Pendidikan | MyBantuan</title>
   <meta name="description" content="Senarai biasiswa dan pinjaman pendidikan Malaysia — JPA, MARA, PTPTN, PETRONAS, Khazanah dan lain-lain.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    .filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 24px; }
-    .filters input, .filters select {
-      font: inherit; padding: 8px 12px; border: 1px solid var(--border);
-      border-radius: 8px; background: var(--surface); min-width: 140px;
-    }
-    .filters input { flex: 1; min-width: 180px; }
-    .card-tags { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
-    .tag { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); }
-    .tag-loan { background: #eff6ff; color: #2563eb; }
-    .tag-corp { background: #f5f3ff; color: #7c3aed; }
-    .tag-found { background: #fff7ed; color: #c2410c; }
-    .count { font-size: 14px; color: var(--text-muted); margin-bottom: 12px; }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
@@ -29,47 +17,67 @@
         <span class="logo-mark">MB</span>
         <div class="logo-text"><strong>MyBantuan</strong><span>&amp; Tax Calc</span></div>
       </a>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Utama">
         <a href="../index.html">Utama</a>
         <a href="index.html">Bantuan</a>
-        <a href="biasiswa.html" class="active">Biasiswa</a>
+        <a href="biasiswa.html" class="active" aria-current="page">Biasiswa</a>
         <a href="../universiti/index.html">Universiti</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding: 32px 20px 60px;">
-    <h1 style="font-size:1.5rem;margin-bottom:6px">Biasiswa &amp; Pinjaman Pendidikan</h1>
-    <p style="color:var(--text-muted);margin-bottom:8px">Klik kad untuk panduan lengkap. Butang permohonan rasmi ada di halaman detail.</p>
-    <p class="count"><span id="count">—</span> program</p>
+  <section class="page-head">
+    <div class="container">
+      <nav class="crumbs" aria-label="Breadcrumb" style="margin-bottom:12px"><a href="../index.html">Laman Utama</a><span aria-hidden="true">›</span><span>Biasiswa</span></nav>
+      <h1>Biasiswa &amp; Pinjaman Pendidikan</h1>
+      <p>Klik kad untuk panduan lengkap. Butang permohonan rasmi ada di halaman detail.</p>
+    </div>
+  </section>
 
-    <div class="filters">
-      <input type="search" id="search" placeholder="Cari nama / penyedia..." autocomplete="off">
-      <select id="f-prov">
-        <option value="">Semua penyedia</option>
-        <option value="government">Kerajaan</option>
-        <option value="corporate">Korporat / GLC</option>
-        <option value="foundation">Yayasan</option>
-      </select>
-      <select id="f-type">
-        <option value="">Semua jenis</option>
-        <option value="scholarship">Biasiswa</option>
-        <option value="loan">Pinjaman</option>
-        <option value="convertible-loan">Pinjaman Boleh Ubah</option>
-      </select>
-      <select id="f-level">
-        <option value="">Semua peringkat</option>
-        <option value="spm">SPM / Pra-U</option>
-        <option value="foundation">Asasi</option>
-        <option value="diploma">Diploma</option>
-        <option value="degree">Ijazah</option>
-        <option value="master">Sarjana</option>
-        <option value="phd">PhD</option>
-      </select>
+  <main class="container">
+
+    <div class="toolbar" role="search">
+      <div class="search-box">
+        <input type="search" id="search" placeholder="Cari nama atau penyedia, contoh: PTPTN" autocomplete="off" aria-label="Cari biasiswa">
+      </div>
+
+      <div class="chip-row" data-group="prov" role="group" aria-label="Penyedia">
+        <span class="chip-label">Penyedia</span>
+        <button class="chip-btn" data-value="" aria-pressed="true">Semua</button>
+        <button class="chip-btn" data-value="government" aria-pressed="false">Kerajaan</button>
+        <button class="chip-btn" data-value="corporate" aria-pressed="false">Korporat / GLC</button>
+        <button class="chip-btn" data-value="foundation" aria-pressed="false">Yayasan</button>
+      </div>
+
+      <div class="chip-row" data-group="type" role="group" aria-label="Jenis">
+        <span class="chip-label">Jenis</span>
+        <button class="chip-btn" data-value="" aria-pressed="true">Semua</button>
+        <button class="chip-btn" data-value="scholarship" aria-pressed="false">Biasiswa</button>
+        <button class="chip-btn" data-value="loan" aria-pressed="false">Pinjaman</button>
+        <button class="chip-btn" data-value="convertible-loan" aria-pressed="false">Pinjaman Boleh Ubah</button>
+      </div>
+
+      <div class="chip-row">
+        <label class="chip-label" for="f-level">Peringkat</label>
+        <select id="f-level">
+          <option value="">Semua peringkat</option>
+          <option value="spm">SPM / Pra-U</option>
+          <option value="foundation">Asasi</option>
+          <option value="diploma">Diploma</option>
+          <option value="degree">Ijazah</option>
+          <option value="master">Sarjana</option>
+          <option value="phd">PhD</option>
+        </select>
+      </div>
     </div>
 
-    <div class="bento-grid" id="grid">
-      <p>Memuat...</p>
+    <div class="result-bar">
+      <span><strong id="count">—</strong> program</span>
+      <button class="link-btn" id="clear" hidden>Kosongkan penapis</button>
+    </div>
+
+    <div class="sch-grid" id="grid" aria-live="polite">
+      <p class="empty">Memuat...</p>
     </div>
   </main>
 
@@ -80,28 +88,33 @@
   <script>
     const PROVIDER_LABEL = { government: 'Kerajaan', corporate: 'Korporat / GLC', foundation: 'Yayasan' };
     const TYPE_LABEL = { scholarship: 'Biasiswa', loan: 'Pinjaman', 'convertible-loan': 'Pinjaman Boleh Ubah' };
+    const LEVEL_LABEL = { spm: 'SPM / Pra-U', foundation: 'Asasi', diploma: 'Diploma', degree: 'Ijazah', master: 'Sarjana', phd: 'PhD' };
     const TYPE_TAG = { scholarship: 'tag', loan: 'tag tag-loan', 'convertible-loan': 'tag tag-loan' };
     const PROVIDER_TAG = { government: 'tag', corporate: 'tag tag-corp', foundation: 'tag tag-found' };
+    const PROVIDER_CARD = { government: '', corporate: ' sch-corp', foundation: ' sch-found' };
 
-    function card(s) {
-      const tags = [
-        `<span class="${PROVIDER_TAG[s.providerType] || 'tag'}">${PROVIDER_LABEL[s.providerType] || s.providerType}</span>`,
-        `<span class="${TYPE_TAG[s.aidType] || 'tag'}">${TYPE_LABEL[s.aidType] || s.aidType}</span>`
-      ].join('');
+    const esc = v => String(v == null ? '' : v).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+    function card(s, lead) {
+      const tags =
+        `<span class="${PROVIDER_TAG[s.providerType] || 'tag'}">${esc(PROVIDER_LABEL[s.providerType] || s.providerType)}</span>` +
+        `<span class="${TYPE_TAG[s.aidType] || 'tag'}">${esc(TYPE_LABEL[s.aidType] || s.aidType)}</span>`;
+      const levels = (s.studyLevels || []).map(l => LEVEL_LABEL[l] || l).join(' · ');
       const deadline = s.deadline
-        ? `<span>Tutup: ${s.deadline}</span>`
-        : `<span>${s.statusNote || 'Semak portal rasmi'}</span>`;
+        ? `<span class="sch-meta"><span class="sch-deadline">Tutup: ${esc(s.deadline)}</span></span>`
+        : `<span class="sch-meta">${esc(s.statusNote || 'Semak portal rasmi')}</span>`;
       // Always local detail page first — official apply button is on the detail page
       return `
-        <a class="card card-medium" href="${s.detailPage || s.id + '.html'}">
-          <div class="card-top">${tags}</div>
-          <h2 class="card-title">${s.name}</h2>
-          <p class="card-desc">${s.eligibilitySummary || s.amountSummary || ''}</p>
-          <div class="card-meta">
-            <span class="card-amount">${s.amountSummary || ''}</span>
+        <a class="sch${PROVIDER_CARD[s.providerType] || ''}${lead ? ' sch-lead' : ''}" href="${esc(s.detailPage || s.id + '.html')}">
+          <div class="sch-tags">${tags}</div>
+          <h2 class="sch-title">${esc(s.name)}</h2>
+          <p class="sch-desc">${esc(s.eligibilitySummary || s.amountSummary || '')}</p>
+          ${levels ? `<p class="sch-levels">${esc(levels)}</p>` : ''}
+          <div class="sch-foot"><div>
+            ${s.amountSummary ? `<span class="sch-amount">${esc(s.amountSummary)}</span>` : ''}
             ${deadline}
-            <span>${s.provider}</span>
-          </div>
+            <span class="sch-meta">${esc(s.provider)}</span>
+          </div></div>
         </a>`;
     }
 
@@ -113,20 +126,20 @@
         const data = await res.json();
         all = data.scholarships || [];
       } catch (e) {
-        grid.innerHTML = '<p>Gagal memuat data.</p>';
+        grid.innerHTML = '<p class="empty">Gagal memuat data.</p>';
         return;
       }
 
       const search = document.getElementById('search');
-      const fProv = document.getElementById('f-prov');
-      const fType = document.getElementById('f-type');
       const fLevel = document.getElementById('f-level');
+      const clearBtn = document.getElementById('clear');
+      const state = { prov: '', type: '' };
 
       function apply() {
         const q = (search.value || '').toLowerCase().trim();
         let list = all.slice();
-        if (fProv.value) list = list.filter(s => s.providerType === fProv.value);
-        if (fType.value) list = list.filter(s => s.aidType === fType.value);
+        if (state.prov) list = list.filter(s => s.providerType === state.prov);
+        if (state.type) list = list.filter(s => s.aidType === state.type);
         if (fLevel.value) list = list.filter(s => (s.studyLevels || []).includes(fLevel.value));
         if (q) {
           list = list.filter(s =>
@@ -136,11 +149,38 @@
           );
         }
         list.sort((a, b) => (b.priority || 0) - (a.priority || 0));
-        grid.innerHTML = list.map(card).join('') || '<p>Tiada program dijumpai.</p>';
+
+        const filtered = !!(q || state.prov || state.type || fLevel.value);
+        clearBtn.hidden = !filtered;
         document.getElementById('count').textContent = list.length;
+
+        grid.innerHTML = list.length
+          // Unfiltered view: the top-priority program becomes the lead story
+          ? list.map((s, i) => card(s, !filtered && i === 0 && list.length > 2)).join('')
+          : '<div class="empty"><p>Tiada program dijumpai.</p><button class="link-btn" id="clear2">Kosongkan penapis</button></div>';
+        const c2 = document.getElementById('clear2');
+        if (c2) c2.addEventListener('click', reset);
       }
 
-      [search, fProv, fType, fLevel].forEach(el => el.addEventListener(el === search ? 'input' : 'change', apply));
+      function setChip(group, value) {
+        state[group] = value;
+        document.querySelectorAll(`.chip-row[data-group="${group}"] .chip-btn`).forEach(b =>
+          b.setAttribute('aria-pressed', String(b.dataset.value === value)));
+      }
+      function reset() {
+        search.value = ''; fLevel.value = '';
+        setChip('prov', ''); setChip('type', '');
+        apply();
+      }
+
+      document.querySelectorAll('.chip-row[data-group]').forEach(row =>
+        row.addEventListener('click', e => {
+          const b = e.target.closest('.chip-btn'); if (!b) return;
+          setChip(row.dataset.group, b.dataset.value); apply();
+        }));
+      search.addEventListener('input', apply);
+      fLevel.addEventListener('change', apply);
+      clearBtn.addEventListener('click', reset);
       apply();
     }
 
