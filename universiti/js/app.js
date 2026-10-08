@@ -33,14 +33,14 @@
     const strengths = (u.strengths || []).slice(0, 4).map(s =>
       `<span class="tag">${s}</span>`
     ).join("");
-    const href = u.detailPage || u.website;
-    const ext = (href || "").startsWith("http");
+    // Always go to local detail page first (not official website)
+    const href = u.detailPage || (u.id + ".html");
     const n = (u.campuses || []).length;
     const badge = n > 1
       ? `<span class="card-status status-ongoing" style="margin-left:6px">${n} kampus</span>`
       : "";
     return `
-      <a class="card card-medium" href="${href}" ${ext ? 'target="_blank" rel="noopener"' : ''}>
+      <a class="card card-medium" href="${href}">
         <div class="card-top">
           <span class="card-status ${TYPE_CLASS[u.type] || ""}">${TYPE_LABEL[u.type] || u.type}</span>
           ${badge}
