@@ -5,46 +5,94 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bantuan Kewangan Kerajaan — Portal MyGovernment | MyBantuan</title>
   <meta name="description" content="Portal rasmi MyGovernment untuk senarai bantuan kewangan dan kebajikan kerajaan Malaysia. Pautan terus ke laman rasmi.">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
   <style>
-    .detail-wrap { max-width: 720px; margin: 0 auto; padding: 40px 20px 60px; }
-    .back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-muted); margin-bottom: 24px; }
-    .back-link:hover { color: var(--accent); }
-    .detail-status { margin-bottom: 12px; }
-    .detail-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
-    .detail-desc { color: var(--text-muted); margin-bottom: 28px; }
-    .detail-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      margin-bottom: 16px;
+    /* ===== Detail page ===== */
+    .detail { padding-top: 28px; padding-bottom: 72px; }
+
+    .crumbs { font-size: 13px; color: var(--text-muted); margin-bottom: 18px; }
+    .crumbs a { color: var(--text-muted); }
+    .crumbs a:hover { color: var(--accent); }
+    .crumbs span[aria-hidden] { margin: 0 6px; opacity: .6; }
+
+    .detail-head { padding-bottom: 26px; border-bottom: 1px solid var(--border); }
+    .pill {
+      display: inline-flex; align-items: center; gap: 7px; font-size: 12.5px; font-weight: 600;
+      padding: 4px 11px; border-radius: 999px; margin-bottom: 14px;
     }
-    .detail-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-muted); margin-bottom: 10px; }
-    .detail-box p, .detail-box ul { font-size: 15px; line-height: 1.55; }
-    .detail-box ul { padding-left: 20px; margin-top: 6px; }
-    .detail-box li { margin-bottom: 6px; }
-    .cta-area {
-      margin-top: 28px;
-      padding: 24px;
-      background: var(--accent-soft);
-      border-radius: var(--radius);
-      text-align: center;
+    .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .pill-ongoing { background: var(--accent-soft); color: var(--ongoing); }
+    .detail-title {
+      font-size: clamp(1.7rem, 3.6vw, 2.5rem); line-height: 1.15; font-weight: 700;
+      letter-spacing: -0.03em; max-width: 760px;
     }
-    .cta-area p { font-size: 14px; color: var(--text-muted); margin-bottom: 14px; }
+    .detail-desc { margin-top: 12px; max-width: 680px; font-size: 17px; line-height: 1.6; color: var(--text-muted); }
+
+    .detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; margin-top: 32px; align-items: start; }
+
+    /* Main column */
+    .block { margin-bottom: 40px; }
+    .block h2 {
+      font-size: 1.15rem; font-weight: 700; letter-spacing: -0.015em;
+      padding-top: 10px; border-top: 3px solid var(--text); margin-bottom: 6px;
+    }
+    .find-list { list-style: none; }
+    .find-list li { padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .find-list strong { display: block; font-size: 15px; margin-bottom: 2px; }
+    .find-list span { font-size: 14.5px; line-height: 1.6; color: var(--text-muted); }
+
+    .steps-list { list-style: none; counter-reset: s; margin-top: 8px; }
+    .steps-list li {
+      counter-increment: s; display: grid; grid-template-columns: 32px 1fr; gap: 14px;
+      padding: 14px 0; border-bottom: 1px solid var(--border);
+      font-size: 15px; line-height: 1.65; color: var(--text-muted);
+    }
+    .steps-list li::before {
+      content: counter(s); width: 28px; height: 28px; display: grid; place-items: center;
+      background: var(--accent); color: #fff; border-radius: 50%; font-size: 13px; font-weight: 700;
+    }
+    .steps-list strong { color: var(--text); }
+
+    .related { display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      margin-top: 8px; padding: 14px 16px; background: var(--surface);
+      border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 6px;
+      text-decoration: none; color: var(--text); }
+    .related:hover { border-color: var(--accent); text-decoration: none; }
+    .related b { display: block; font-size: 15px; }
+    .related small { font-size: 13px; color: var(--text-muted); }
+    .related em { font-style: normal; color: var(--accent); font-weight: 600; font-size: 14px; white-space: nowrap; }
+
+    .note { font-size: 13px; line-height: 1.6; color: var(--text-muted); padding: 14px 16px;
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; }
+
+    /* Sidebar */
+    .side { position: sticky; top: 76px; display: grid; gap: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+    .cta-card { border-top: 4px solid var(--accent); }
+    .cta-card h2 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.01em; }
+    .cta-card p { font-size: 13.5px; line-height: 1.55; color: var(--text-muted); margin: 6px 0 16px; }
     .cta-btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff !important;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none !important;
+      display: flex; justify-content: center; align-items: center; gap: 8px; width: 100%;
+      background: var(--accent); color: #fff !important; font-weight: 600; font-size: 15px;
+      padding: 14px 18px; border-radius: 8px; text-decoration: none !important; transition: background .15s;
     }
-    .cta-btn:hover { opacity: 0.92; }
-    .note { font-size: 13px; color: var(--text-muted); margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .cta-btn:hover { background: var(--accent-dark, #0a5a41); }
+    .cta-meta { margin-top: 10px; font-size: 12.5px; color: var(--text-muted); text-align: center; }
+
+    .facts h2 { font-size: 13.5px; font-weight: 700; margin-bottom: 4px; }
+    .facts dl { display: grid; }
+    .facts div { padding: 10px 0; border-bottom: 1px solid var(--border); }
+    .facts div:last-child { border-bottom: 0; padding-bottom: 0; }
+    .facts dt { font-size: 12.5px; color: var(--text-muted); }
+    .facts dd { font-size: 14.5px; font-weight: 600; margin-top: 1px; }
+
+    @media (max-width: 900px) {
+      .detail-grid { grid-template-columns: 1fr; gap: 28px; }
+      .side { position: static; order: -1; }   /* show the action first on mobile */
+    }
   </style>
 </head>
 <body>
@@ -57,51 +105,78 @@
           <span>& Tax Calc</span>
         </div>
       </div>
-      <nav class="main-nav">
+      <nav class="main-nav" aria-label="Utama">
         <a href="index.html">Laman Utama</a>
       </nav>
     </div>
   </header>
 
-  <main class="detail-wrap">
-    <a href="index.html" class="back-link">← Kembali ke Laman Utama</a>
+  <main class="container detail">
 
-    <div class="detail-status">
-      <span class="card-status status-ongoing">Sedang Berjalan</span>
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="index.html">Laman Utama</a><span aria-hidden="true">›</span><span>Bantuan Kewangan</span>
+    </nav>
+
+    <header class="detail-head">
+      <span class="pill pill-ongoing">Sedang Berjalan</span>
+      <h1 class="detail-title">Bantuan Kewangan (Portal MyGovernment)</h1>
+      <p class="detail-desc">Laman rasmi kerajaan Malaysia yang mengumpulkan maklumat bantuan kewangan dan kebajikan di bawah kategori Bantuan Kebajikan &amp; Kemudahan.</p>
+    </header>
+
+    <div class="detail-grid">
+
+      <div class="content">
+        <section class="block" aria-labelledby="h-jumpa">
+          <h2 id="h-jumpa">Apa yang anda boleh jumpa</h2>
+          <ul class="find-list">
+            <li><strong>Senarai bantuan kewangan</strong><span>Termasuk STR dan bantuan kerajaan yang lain.</span></li>
+            <li><strong>Kelayakan dan cara memohon</strong><span>Maklumat ringkas supaya anda tahu sama ada anda layak.</span></li>
+            <li><strong>Pautan terus ke agensi</strong><span>Terus ke portal agensi yang menguruskan bantuan berkenaan.</span></li>
+          </ul>
+        </section>
+
+        <section class="block" aria-labelledby="h-guna">
+          <h2 id="h-guna">Cara menggunakan portal ini</h2>
+          <p style="font-size:14.5px;color:var(--text-muted);margin:6px 0 0">Gunakan portal ini sebagai titik permulaan, kemudian teruskan ke portal khusus.</p>
+          <ol class="steps-list">
+            <li><span><strong>Cari bantuan yang relevan</strong> di portal MyGovernment.</span></li>
+            <li><span><strong>Semak kelayakan</strong> dan cara memohon yang diringkaskan di sana.</span></li>
+            <li><span><strong>Ikut pautan rasmi</strong> ke portal khusus untuk memohon atau menyemak status.</span></li>
+          </ol>
+          <a class="related" href="https://bantuantunai.hasil.gov.my" target="_blank" rel="noopener" style="margin-top:18px">
+            <span><b>Contoh: STR</b><small>bantuantunai.hasil.gov.my</small></span>
+            <em>Buka ↗</em>
+          </a>
+        </section>
+
+        <p class="note">Sentiasa rujuk portal rasmi kerajaan untuk maklumat terkini dan tepat.</p>
+      </div>
+
+      <aside class="side" aria-label="Pautan rasmi dan ringkasan">
+        <div class="card cta-card">
+          <h2>Lawati portal rasmi</h2>
+          <p>Anda akan dibawa ke laman MyGovernment untuk melihat senarai penuh bantuan kewangan.</p>
+          <a class="cta-btn" href="https://www.malaysia.gov.my/my/categories/bantuan-kebajikan--kemudahan/bantuan-kewangan" target="_blank" rel="noopener">Buka MyGovernment <span aria-hidden="true">↗</span></a>
+          <div class="cta-meta">malaysia.gov.my · dibuka di tab baharu</div>
+        </div>
+
+        <div class="card facts">
+          <h2>Ringkasan</h2>
+          <dl>
+            <div><dt>Sumber</dt><dd>Portal MyGovernment</dd></div>
+            <div><dt>Kategori</dt><dd>Bantuan Kebajikan &amp; Kemudahan</dd></div>
+            <div><dt>Status</dt><dd>Sedang berjalan</dd></div>
+          </dl>
+        </div>
+      </aside>
+
     </div>
-    <h1 class="detail-title">Bantuan Kewangan (Portal MyGovernment)</h1>
-    <p class="detail-desc">Laman rasmi kerajaan Malaysia yang mengumpulkan maklumat bantuan kewangan dan kebajikan di bawah kategori Bantuan Kebajikan & Kemudahan.</p>
-
-    <div class="detail-box">
-      <h3>Apa yang anda boleh jumpa</h3>
-      <ul>
-        <li>Senarai bantuan kewangan kerajaan (termasuk STR dan lain-lain)</li>
-        <li>Maklumat ringkas kelayakan dan cara memohon</li>
-        <li>Pautan terus ke portal agensi yang menguruskan bantuan berkenaan</li>
-      </ul>
-    </div>
-
-    <div class="detail-box">
-      <h3>Cadangan Penggunaan</h3>
-      <p>Gunakan portal ini sebagai titik permulaan untuk mencari bantuan yang relevan, kemudian ikuti pautan rasmi ke portal khusus (contohnya bantuantunai.hasil.gov.my untuk STR) untuk memohon atau semak status.</p>
-    </div>
-
-    <div class="cta-area">
-      <p>Lawati portal rasmi MyGovernment</p>
-      <a class="cta-btn" href="https://www.malaysia.gov.my/my/categories/bantuan-kebajikan--kemudahan/bantuan-kewangan" target="_blank" rel="noopener">
-        Pergi ke MyGovernment — Bantuan Kewangan →
-      </a>
-    </div>
-
-    <p class="note">
-      Sentiasa rujuk portal rasmi kerajaan untuk maklumat terkini dan tepat.
-    </p>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <p>Maklumat disusun daripada sumber rasmi. Rujuk portal kerajaan untuk keputusan akhir.</p>
-      <p class="copyright">© 2026 MyBantuan & Tax Calc</p>
+      <p class="copyright">© 2026 MyBantuan &amp; Tax Calc</p>
     </div>
   </footer>
 </body>
