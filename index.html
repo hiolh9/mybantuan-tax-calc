@@ -3,11 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyBantuan & Tax Calc — Bantuan, Biasiswa & Universiti Malaysia</title>
-  <meta name="description" content="Satu hentian: bantuan kerajaan, biasiswa/pinjaman pendidikan, dan senarai universiti Malaysia.">
+
+  <!-- ===== SEO: Title & Description ===== -->
+  <title>Bantuan Info — Bantuan Kerajaan, Biasiswa &amp; Universiti Malaysia</title>
+  <meta name="description" content="Bantuan Info menghimpunkan maklumat bantuan kerajaan (STR, SARA, JKM, mySalam, PeKa B40), biasiswa &amp; pinjaman pendidikan, serta senarai universiti Malaysia — dalam satu portal rujukan yang mudah difahami.">
+  <meta name="keywords" content="bantuan kerajaan, STR, SARA, JKM, mySalam, PeKa B40, BUDI95, biasiswa, PTPTN, JPA, MARA, universiti Malaysia, pelepasan cukai LHDN">
+  <meta name="author" content="Bantuan Info">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://bantuaninfo.com/">
+
+  <!-- ===== Open Graph ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bantuan Info">
+  <meta property="og:locale" content="ms_MY">
+  <meta property="og:title" content="Bantuan Info — Bantuan Kerajaan, Biasiswa &amp; Universiti Malaysia">
+  <meta property="og:description" content="Satu hentian untuk bantuan kerajaan, biasiswa pendidikan dan pilihan universiti Malaysia. Disusun dalam bahasa yang mudah difahami, dengan pautan terus ke sumber rasmi.">
+  <meta property="og:url" content="https://bantuaninfo.com/">
+  <meta property="og:image" content="https://bantuaninfo.com/assets/og-bantuan-info.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Bantuan Info — portal rujukan bantuan kerajaan, biasiswa dan universiti Malaysia">
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bantuan Info — Bantuan Kerajaan, Biasiswa &amp; Universiti Malaysia">
+  <meta name="twitter:description" content="Satu hentian untuk bantuan kerajaan, biasiswa pendidikan dan pilihan universiti Malaysia.">
+  <meta name="twitter:image" content="https://bantuaninfo.com/assets/og-bantuan-info.jpg">
+
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* ===== Hub cards ===== */
     .hub-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 28px; }
     @media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 520px) { .hub-grid { grid-template-columns: 1fr; } }
@@ -20,30 +48,180 @@
     .hub-card h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
     .hub-card p { font-size: 14px; color: var(--text-muted); line-height: 1.5; }
     .hub-card .arrow { margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--accent); }
+
+    /* ===== Article sections ===== */
+    .article { max-width: 760px; margin-top: 64px; }
+    .article + .article { margin-top: 52px; }
+    .article h2 {
+      font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 14px; line-height: 1.3;
+    }
+    .article h3 { font-size: 1.05rem; font-weight: 600; margin: 22px 0 6px; line-height: 1.4; }
+    .article p { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-bottom: 14px; }
+    .article ul { margin: 0 0 14px 22px; padding: 0; list-style: disc; }
+    .article li { font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-bottom: 6px; }
+    .article a { color: var(--accent); text-decoration: none; }
+    .article a:hover { text-decoration: underline; }
+    .article .lead { font-size: 16px; }
+
+    .callout {
+      background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+      border-radius: var(--radius); padding: 18px 20px; margin: 20px 0;
+    }
+    .callout p { margin-bottom: 0; font-size: 14.5px; }
+
+    /* ===== FAQ ===== */
+    .faq { display: grid; gap: 10px; margin-top: 20px; }
+    .faq details {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 16px 20px;
+    }
+    .faq summary {
+      font-size: 15px; font-weight: 600; cursor: pointer; list-style: none;
+      position: relative; padding-right: 26px; line-height: 1.5;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+"; position: absolute; right: 0; top: 0;
+      color: var(--accent); font-weight: 700; font-size: 16px;
+    }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: 10px 0 0; font-size: 14.5px; line-height: 1.7; color: var(--text-muted); }
   </style>
+
+  <!-- ===== Structured Data ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://bantuaninfo.com/#website",
+        "url": "https://bantuaninfo.com/",
+        "name": "Bantuan Info",
+        "alternateName": "BantuanInfo",
+        "description": "Portal rujukan bantuan kerajaan, biasiswa, pinjaman pendidikan dan universiti Malaysia.",
+        "inLanguage": "ms-MY",
+        "publisher": { "@id": "https://bantuaninfo.com/#organization" }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://bantuaninfo.com/#organization",
+        "name": "Bantuan Info",
+        "url": "https://bantuaninfo.com/",
+        "description": "Portal rujukan bebas yang menghimpunkan maklumat bantuan kerajaan, biasiswa dan universiti di Malaysia.",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://bantuaninfo.com/assets/logo.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://bantuaninfo.com/#webpage",
+        "url": "https://bantuaninfo.com/",
+        "name": "Bantuan Info — Bantuan Kerajaan, Biasiswa & Universiti Malaysia",
+        "description": "Bantuan Info menghimpunkan maklumat bantuan kerajaan (STR, SARA, JKM, mySalam, PeKa B40), biasiswa & pinjaman pendidikan, serta senarai universiti Malaysia — dalam satu portal rujukan yang mudah difahami.",
+        "isPartOf": { "@id": "https://bantuaninfo.com/#website" },
+        "about": { "@id": "https://bantuaninfo.com/#organization" },
+        "inLanguage": "ms-MY"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://bantuaninfo.com/#faq",
+        "isPartOf": { "@id": "https://bantuaninfo.com/#webpage" },
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Apakah Bantuan Info?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bantuan Info ialah portal rujukan bebas yang menghimpunkan maklumat bantuan kerajaan, biasiswa, pinjaman pendidikan dan universiti di Malaysia. Ia berfungsi sebagai titik permulaan sebelum anda melawat portal rasmi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Adakah Bantuan Info laman web rasmi kerajaan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tidak. Bantuan Info tidak berkaitan dengan mana-mana agensi kerajaan, kementerian atau institusi pendidikan. Kami hanya menyusun maklumat awam dan menyediakan pautan kepada sumber rasmi."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Adakah Bantuan Info percuma?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ya, sepenuhnya percuma. Kami tidak mengenakan sebarang bayaran, tidak memerlukan pendaftaran akaun, dan tidak meminta butiran bank atau data sensitif."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Bolehkah saya memohon bantuan terus melalui Bantuan Info?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tidak. Semua permohonan mesti dibuat melalui portal rasmi agensi berkenaan. Bantuan Info hanya menyediakan panduan, ringkasan syarat dan pautan kepada portal tersebut."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dari mana maklumat di Bantuan Info diperoleh?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maklumat dikumpulkan daripada portal kerajaan, laman web agensi, kenyataan media rasmi dan dokumen awam yang lain. Setiap halaman menyertakan pautan rujukan supaya anda boleh menyemak sendiri."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Berapa kerap kandungan Bantuan Info dikemas kini?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Kami menyemak halaman secara berkala, terutamanya apabila ada pengumuman bajet, pembukaan permohonan baharu atau perubahan syarat. Walau bagaimanapun, tarikh dan syarat rasmi sentiasa diutamakan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Adakah Bantuan Info menyimpan data peribadi saya?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tidak. Kami tidak meminta dan tidak menyimpan data peribadi seperti nombor kad pengenalan, nombor telefon atau maklumat bank."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="logo">
-        <span class="logo-mark">MB</span>
-        <div class="logo-text"><strong>MyBantuan</strong><span>& Tax Calc</span></div>
+        <span class="logo-mark">BI</span>
+        <div class="logo-text"><strong>Bantuan Info</strong><span>.com</span></div>
       </div>
       <nav class="main-nav">
         <a href="bantuan/index.html">Bantuan</a>
         <a href="bantuan/biasiswa.html">Biasiswa</a>
         <a href="universiti/index.html">Universiti</a>
+        <a href="#tentang">Tentang</a>
       </nav>
     </div>
   </header>
+
   <main class="container" style="padding-top:40px;padding-bottom:60px;max-width:900px">
+
+    <!-- ===== HERO ===== -->
     <section class="hero">
-      <h1>MyBantuan & Tax Calc</h1>
-      <p>Satu hentian untuk bantuan kerajaan, biasiswa pendidikan, dan pilihan universiti Malaysia.</p>
+      <h1>Bantuan Info — Bantuan Kerajaan, Biasiswa &amp; Universiti Malaysia</h1>
+      <p>Satu hentian untuk bantuan kerajaan, biasiswa pendidikan dan pilihan universiti Malaysia — disusun dalam bahasa yang mudah difahami, dengan pautan terus ke sumber rasmi.</p>
     </section>
+
+    <!-- ===== HUB CARDS ===== -->
     <div class="hub-grid">
       <a class="hub-card" href="bantuan/index.html">
-        <h2>Bantuan & Cukai</h2>
+        <h2>Bantuan &amp; Cukai</h2>
         <p>STR, SARA, JKM, mySalam, PeKa B40, BUDI95, pelepasan cukai LHDN — kelayakan, cara mohon, pautan rasmi.</p>
         <div class="arrow">Lihat bantuan →</div>
       </a>
@@ -58,11 +236,126 @@
         <div class="arrow">Lihat universiti →</div>
       </a>
     </div>
+
+    <!-- ===== TENTANG ===== -->
+    <section class="article" id="tentang" aria-labelledby="tentang-h2">
+      <h2 id="tentang-h2">Tentang Bantuan Info</h2>
+      <p class="lead">Bantuan Info ialah portal rujukan bebas yang mengumpulkan maklumat tentang bantuan kerajaan, penajaan pendidikan dan institusi pengajian tinggi di Malaysia. Kami bukan agensi kerajaan dan kami tidak mengendalikan permohonan. Tugas kami mudah: membantu anda memahami apa yang tersedia, siapa yang layak, dan ke mana perlu pergi untuk memohon.</p>
+      <p>Kami membina laman ini kerana maklumat bantuan di Malaysia selalunya bertaburan — ada di portal kementerian, ada di laman agensi, ada yang hanya muncul dalam pengumuman media sosial. Bagi pengguna biasa, proses mencari boleh mengambil masa berjam-jam dan sering berakhir dengan kekeliruan.</p>
+      <p>Bantuan Info hadir untuk merapatkan jurang itu: satu tempat untuk bermula sebelum anda melangkah ke portal rasmi.</p>
+    </section>
+
+    <!-- ===== APA YANG BOLEH DICARI ===== -->
+    <section class="article" aria-labelledby="cari-h2">
+      <h2 id="cari-h2">Apa Yang Anda Boleh Cari di Bantuan Info?</h2>
+
+      <h3>Bantuan Kerajaan &amp; Cukai</h3>
+      <p>Direktori bantuan seperti STR, SARA, sumbangan JKM, mySalam, PeKa B40 dan BUDI95 — lengkap dengan gambaran ringkas, kategori pemohon dan pautan ke portal rasmi. Kami turut menyediakan rujukan pelepasan cukai LHDN supaya anda tahu apa yang boleh dituntut semasa mengisi borang.</p>
+
+      <h3>Biasiswa &amp; Pinjaman Pendidikan</h3>
+      <p>Senarai penajaan daripada JPA, MARA, PTPTN, Petronas, Khazanah dan lain-lain. Setiap penyertaan menerangkan syarat kelayakan, bidang pengajian yang ditaja, anggaran nilai penajaan serta tarikh penting yang perlu diberi perhatian.</p>
+
+      <h3>Direktori Universiti</h3>
+      <p>Senarai universiti awam, universiti swasta dan cawangan universiti asing di Malaysia — termasuk lokasi kampus, bidang kekuatan dan laman rasmi untuk semakan program.</p>
+
+      <h3>Panduan &amp; Penjelasan</h3>
+      <p>Selain senarai, kami menulis penjelasan tentang istilah dan proses yang sering mengelirukan: perbezaan antara biasiswa dan pinjaman, maksud kumpulan B40, M40 dan T20, serta cara membaca syarat kelayakan dengan betul.</p>
+    </section>
+
+    <!-- ===== MENGAPA ===== -->
+    <section class="article" aria-labelledby="mengapa-h2">
+      <h2 id="mengapa-h2">Mengapa Bantuan Info?</h2>
+
+      <h3>Fokus pada sumber rasmi</h3>
+      <p>Setiap halaman mengutamakan pautan ke portal kerajaan atau institusi yang berkenaan. Kami tidak menyalin borang permohonan dan tidak meminta sebarang bayaran daripada pengguna.</p>
+
+      <h3>Ditulis dalam bahasa yang mudah</h3>
+      <p>Kami elakkan istilah birokrasi yang tidak perlu. Jika sesuatu syarat rumit, kami pecahkan kepada poin-poin yang boleh difahami oleh pembaca biasa.</p>
+
+      <h3>Percuma dan terbuka</h3>
+      <p>Semua kandungan boleh diakses tanpa log masuk, tanpa langganan dan tanpa bayaran tersembunyi.</p>
+
+      <h3>Kemas kini berkala</h3>
+      <p>Halaman disemak dari semasa ke semasa untuk memastikan pautan masih berfungsi dan maklumat tidak ketinggalan zaman. Namun begitu, syarat bantuan boleh berubah pada bila-bila masa — sentiasa sahkan dengan pihak berkuasa sebelum membuat keputusan.</p>
+    </section>
+
+    <!-- ===== SIAPA BOLEH MANFAAT ===== -->
+    <section class="article" aria-labelledby="siapa-h2">
+      <h2 id="siapa-h2">Siapa Yang Boleh Manfaat Daripada Laman Ini</h2>
+      <ul>
+        <li>Pelajar dan bakal pelajar yang mencari biasiswa atau pinjaman pengajian.</li>
+        <li>Ibu bapa yang merancang kos pendidikan anak.</li>
+        <li>Individu dan keluarga yang ingin menyemak kelayakan bantuan kerajaan.</li>
+        <li>Pesara dan warga emas yang mencari maklumat bantuan kebajikan.</li>
+        <li>Guru, kaunselor dan petugas NGO yang membantu orang lain membuat permohonan.</li>
+      </ul>
+    </section>
+
+    <!-- ===== CARA KAMI MENYUSUN ===== -->
+    <section class="article" aria-labelledby="cara-h2">
+      <h2 id="cara-h2">Cara Kami Menyusun Maklumat</h2>
+      <p>Setiap halaman melalui langkah yang sama sebelum diterbitkan:</p>
+      <ul>
+        <li><strong>Kutipan</strong> — maklumat diambil daripada portal rasmi dan pengumuman agensi.</li>
+        <li><strong>Ringkasan</strong> — dipadatkan kepada tiga perkara utama: siapa layak, apa manfaatnya, bagaimana memohon.</li>
+        <li><strong>Semakan</strong> — pautan dan tarikh diperiksa supaya tidak berlaku ralat.</li>
+        <li><strong>Kemas kini</strong> — halaman disunting apabila ada perubahan dasar atau pembukaan permohonan baharu.</li>
+      </ul>
+
+      <div class="callout">
+        <p><strong>Nota penting:</strong> Bantuan Info bukan laman web rasmi mana-mana agensi kerajaan, kementerian atau institusi pendidikan. Kami tidak memproses permohonan, tidak mengesahkan kelayakan dan tidak mewakili mana-mana pihak. Semua keputusan permohonan dibuat sepenuhnya oleh agensi yang berkaitan. Jika terdapat percanggahan antara maklumat di laman ini dengan portal rasmi, portal rasmi hendaklah diutamakan.</p>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="article" id="faq" aria-labelledby="faq-h2">
+      <h2 id="faq-h2">Soalan Lazim</h2>
+      <div class="faq">
+
+        <details>
+          <summary>Apakah Bantuan Info?</summary>
+          <p>Bantuan Info ialah portal rujukan bebas yang menghimpunkan maklumat bantuan kerajaan, biasiswa, pinjaman pendidikan dan universiti di Malaysia. Ia berfungsi sebagai titik permulaan sebelum anda melawat portal rasmi.</p>
+        </details>
+
+        <details>
+          <summary>Adakah Bantuan Info laman web rasmi kerajaan?</summary>
+          <p>Tidak. Bantuan Info tidak berkaitan dengan mana-mana agensi kerajaan, kementerian atau institusi pendidikan. Kami hanya menyusun maklumat awam dan menyediakan pautan kepada sumber rasmi.</p>
+        </details>
+
+        <details>
+          <summary>Adakah Bantuan Info percuma?</summary>
+          <p>Ya, sepenuhnya percuma. Kami tidak mengenakan sebarang bayaran, tidak memerlukan pendaftaran akaun, dan tidak meminta butiran bank atau data sensitif.</p>
+        </details>
+
+        <details>
+          <summary>Bolehkah saya memohon bantuan terus melalui Bantuan Info?</summary>
+          <p>Tidak. Semua permohonan mesti dibuat melalui portal rasmi agensi berkenaan. Bantuan Info hanya menyediakan panduan, ringkasan syarat dan pautan kepada portal tersebut.</p>
+        </details>
+
+        <details>
+          <summary>Dari mana maklumat di Bantuan Info diperoleh?</summary>
+          <p>Maklumat dikumpulkan daripada portal kerajaan, laman web agensi, kenyataan media rasmi dan dokumen awam yang lain. Setiap halaman menyertakan pautan rujukan supaya anda boleh menyemak sendiri.</p>
+        </details>
+
+        <details>
+          <summary>Berapa kerap kandungan Bantuan Info dikemas kini?</summary>
+          <p>Kami menyemak halaman secara berkala, terutamanya apabila ada pengumuman bajet, pembukaan permohonan baharu atau perubahan syarat. Walau bagaimanapun, tarikh dan syarat rasmi sentiasa diutamakan.</p>
+        </details>
+
+        <details>
+          <summary>Adakah Bantuan Info menyimpan data peribadi saya?</summary>
+          <p>Tidak. Kami tidak meminta dan tidak menyimpan data peribadi seperti nombor kad pengenalan, nombor telefon atau maklumat bank.</p>
+        </details>
+
+      </div>
+    </section>
+
   </main>
+
   <footer class="site-footer">
     <div class="container">
       <p>Maklumat disusun daripada sumber rasmi. Rujuk portal kerajaan / universiti untuk keputusan akhir.</p>
-      <p class="copyright">© 2026 MyBantuan & Tax Calc</p>
+      <p class="copyright">© 2026 Bantuan Info · bantuaninfo.com</p>
     </div>
   </footer>
 </body>
