@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyBantuan & Tax Calc — Bantuan Kerajaan & Universiti Malaysia</title>
-  <meta name="description" content="Satu hentian untuk bantuan kerajaan Malaysia (STR, SARA, JKM, cukai) dan senarai universiti awam, swasta serta cawangan asing.">
+  <title>MyBantuan & Tax Calc — Bantuan, Biasiswa & Universiti Malaysia</title>
+  <meta name="description" content="Satu hentian: bantuan kerajaan, biasiswa/pinjaman pendidikan, dan senarai universiti Malaysia.">
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    .hub-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
-    @media (max-width: 640px) { .hub-grid { grid-template-columns: 1fr; } }
+    .hub-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 28px; }
+    @media (max-width: 900px) { .hub-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .hub-grid { grid-template-columns: 1fr; } }
     .hub-card {
       display: block; background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 28px 24px; text-decoration: none; color: inherit;
@@ -30,24 +31,30 @@
       </div>
       <nav class="main-nav">
         <a href="bantuan/index.html">Bantuan</a>
+        <a href="bantuan/biasiswa.html">Biasiswa</a>
         <a href="universiti/index.html">Universiti</a>
       </nav>
     </div>
   </header>
-  <main class="container" style="padding-top:40px;padding-bottom:60px;max-width:720px">
+  <main class="container" style="padding-top:40px;padding-bottom:60px;max-width:900px">
     <section class="hero">
       <h1>MyBantuan & Tax Calc</h1>
-      <p>Satu hentian untuk maklumat bantuan kerajaan Malaysia dan pilihan universiti. Pilih zon di bawah.</p>
+      <p>Satu hentian untuk bantuan kerajaan, biasiswa pendidikan, dan pilihan universiti Malaysia.</p>
     </section>
     <div class="hub-grid">
       <a class="hub-card" href="bantuan/index.html">
         <h2>Bantuan & Cukai</h2>
-        <p>STR, SARA, JKM, mySalam, PeKa B40, BUDI95, pelepasan cukai LHDN — kelayakan, cara mohon, dan pautan rasmi.</p>
+        <p>STR, SARA, JKM, mySalam, PeKa B40, BUDI95, pelepasan cukai LHDN — kelayakan, cara mohon, pautan rasmi.</p>
         <div class="arrow">Lihat bantuan →</div>
+      </a>
+      <a class="hub-card" href="bantuan/biasiswa.html">
+        <h2>Biasiswa</h2>
+        <p>JPA, MARA, PTPTN, Petronas, Khazanah dan penajaan lain — syarat, jumlah, pautan rasmi. Data dikongsi dengan Universiti.</p>
+        <div class="arrow">Lihat biasiswa →</div>
       </a>
       <a class="hub-card" href="universiti/index.html">
         <h2>Universiti</h2>
-        <p>Senarai universiti awam, swasta dan cawangan asing di Malaysia — lokasi, bidang kekuatan, dan laman rasmi.</p>
+        <p>Senarai universiti awam, swasta dan cawangan asing — lokasi, bidang kekuatan, laman rasmi.</p>
         <div class="arrow">Lihat universiti →</div>
       </a>
     </div>
