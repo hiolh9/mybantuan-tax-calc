@@ -3,8 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bantuan & Pelepasan Cukai Kerajaan | MyBantuan</title>
+  <title>Bantuan &amp; Pelepasan Cukai Kerajaan | Bantuan Info</title>
   <meta name="description" content="Semak kelayakan STR, SARA, bantuan JKM, pelepasan cukai LHDN dan subsidi kerajaan Malaysia.">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <meta name="theme-color" content="#0b3d91">
+  <link rel="canonical" href="https://bantuaninfo.com/bantuan/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bantuan Info">
+  <meta property="og:locale" content="ms_MY">
+  <meta property="og:title" content="Bantuan &amp; Pelepasan Cukai Kerajaan | Bantuan Info">
+  <meta property="og:description" content="Semak kelayakan STR, SARA, bantuan JKM, pelepasan cukai LHDN dan subsidi kerajaan Malaysia.">
+  <meta property="og:url" content="https://bantuaninfo.com/bantuan/">
+  <meta property="og:image" content="https://bantuaninfo.com/assets/og-bantuan-info.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bantuan &amp; Pelepasan Cukai Kerajaan | Bantuan Info">
+  <meta name="twitter:description" content="Semak kelayakan STR, SARA, bantuan JKM, pelepasan cukai LHDN dan subsidi kerajaan Malaysia.">
+  <meta name="twitter:image" content="https://bantuaninfo.com/assets/og-bantuan-info.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Laman Utama","item":"https://bantuaninfo.com/"},{"@type":"ListItem","position":2,"name":"Bantuan","item":"https://bantuaninfo.com/bantuan/"}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Bantuan & Pelepasan Cukai Kerajaan","description":"Semak kelayakan STR, SARA, bantuan JKM, pelepasan cukai LHDN dan subsidi kerajaan Malaysia.","url":"https://bantuaninfo.com/bantuan/","inLanguage":"ms-MY","isPartOf":{"@type":"WebSite","name":"Bantuan Info","url":"https://bantuaninfo.com/"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Apakah bantuan kerajaan yang tersedia di Malaysia?","acceptedAnswer":{"@type":"Answer","text":"Antara program utama ialah STR, SARA, bantuan JKM, mySalam, PeKa B40, BUDI95 dan pelbagai pelepasan cukai LHDN."}},{"@type":"Question","name":"Bagaimana saya menyemak kelayakan bantuan?","acceptedAnswer":{"@type":"Answer","text":"Gunakan portal rasmi yang dipautkan di setiap halaman program. Bantuan Info hanya menyediakan panduan."}},{"@type":"Question","name":"Adakah Bantuan Info laman web rasmi kerajaan?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Kami menyusun maklumat awam dan memaut ke sumber rasmi."}},{"@type":"Question","name":"Bolehkah saya memohon terus di sini?","acceptedAnswer":{"@type":"Answer","text":"Tidak. Semua permohonan mesti melalui portal rasmi agensi."}},{"@type":"Question","name":"Apakah perbezaan STR dan SARA?","acceptedAnswer":{"@type":"Answer","text":"STR biasanya bantuan tunai berkala; SARA lebih kepada sokongan keperluan asas."}},{"@type":"Question","name":"Berapa kerap maklumat dikemas kini?","acceptedAnswer":{"@type":"Answer","text":"Kami menyemak halaman apabila ada pengumuman bajet atau perubahan syarat. Sentiasa sahkan di portal rasmi."}}]}
+  </script>
   <link rel="stylesheet" href="css/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
@@ -22,35 +45,59 @@
     </nav>
   </div>
 </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Bantuan & Pelepasan Cukai Kerajaan</h1>
-        <p class="hero-desc">Semak kelayakan STR, SARA, bantuan JKM dan pelepasan cukai LHDN dalam satu tempat. Status dikira mengikut tarikh rasmi.</p>
-        <div class="hero-meta"><span id="last-updated">Dikemaskini: —</span></div>
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1>Bantuan &amp; Pelepasan Cukai Kerajaan</h1>
+      <p class="hero-desc">Semak kelayakan STR, SARA, bantuan JKM dan pelepasan cukai LHDN dalam satu tempat. Status dikira mengikut tarikh rasmi.</p>
+      <div class="hero-meta"><span id="last-updated">Dikemaskini: —</span></div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="ongoing">Sedang Berjalan</button>
+      <button class="filter-btn" data-filter="upcoming">Akan Datang</button>
+      <button class="filter-btn" data-filter="ended">Tamat</button>
+    </div>
+    <div class="bento-grid" id="program-grid">
+      <p style="color:var(--text-muted)">Memuatkan...</p>
+    </div>
+    <section class="block faq" aria-labelledby="h-faq" style="margin-top:40px">
+      <h2 id="h-faq">Soalan lazim</h2>
+      <div class="faq">
+        <details><summary>Apakah bantuan kerajaan yang tersedia di Malaysia?</summary><p>Antara program utama ialah STR, SARA, bantuan JKM, mySalam, PeKa B40, BUDI95 dan pelbagai pelepasan cukai LHDN. Semak halaman program untuk syarat terkini.</p></details>
+        <details><summary>Bagaimana saya menyemak kelayakan bantuan?</summary><p>Gunakan portal rasmi yang dipautkan di setiap halaman program. Bantuan Info hanya menyediakan panduan — permohonan dibuat di portal kerajaan.</p></details>
+        <details><summary>Adakah Bantuan Info laman web rasmi kerajaan?</summary><p>Tidak. Kami menyusun maklumat awam dan memaut ke sumber rasmi. Keputusan akhir tertakluk kepada agensi berkenaan.</p></details>
+        <details><summary>Berapa kerap maklumat dikemas kini?</summary><p>Kami menyemak halaman apabila ada pengumuman bajet, pembukaan permohonan atau perubahan syarat. Sentiasa sahkan tarikh di portal rasmi.</p></details>
+        <details><summary>Bolehkah saya memohon terus di sini?</summary><p>Tidak. Semua permohonan mesti melalui portal rasmi agensi. Kami menyediakan pautan terus ke portal tersebut.</p></details>
+        <details><summary>Apakah perbezaan STR dan SARA?</summary><p>STR biasanya bantuan tunai berkala; SARA lebih kepada sokongan keperluan asas. Kedua-duanya boleh dilayari bersama bergantung kategori.</p></details>
       </div>
     </section>
-
-    <div class="container">
-      <div class="filters" id="filters">
-        <button class="filter-btn active" data-filter="all">Semua</button>
-        <button class="filter-btn" data-filter="ongoing">Sedang Berjalan</button>
-        <button class="filter-btn" data-filter="upcoming">Akan Datang</button>
-        <button class="filter-btn" data-filter="ended">Tamat</button>
-      </div>
-      <div class="bento-grid" id="program-grid">
-        <p style="color:var(--text-muted)">Memuatkan...</p>
-      </div>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>Maklumat disusun daripada sumber rasmi. Rujuk portal kerajaan untuk keputusan akhir.</p>
-      <p class="copyright">© 2026 MyBantuan & Tax Calc</p>
-    </div>
-  </footer>
-  <script src="js/app.js"></script>
+    <section class="block related-links" aria-labelledby="h-related">
+      <h2 id="h-related">Rujukan berkaitan</h2>
+      <p>Halaman lain yang sering dirujuk bersama topik ini:</p>
+      <ul class="check-list related-list">
+        <li><a href="str-2026.html">STR 2026</a></li>
+        <li><a href="sara-2026.html">SARA 2026</a></li>
+        <li><a href="peka-b40.html">PeKa B40</a></li>
+        <li><a href="mysalam.html">mySalam</a></li>
+        <li><a href="budi95.html">BUDI95</a></li>
+        <li><a href="pelepasan-cukai.html">Pelepasan cukai LHDN</a></li>
+        <li><a href="bantuan-kewangan.html">Bantuan kewangan</a></li>
+        <li><a href="ekasih.html">eKasih</a></li>
+        <li><a href="biasiswa.html">Biasiswa &amp; pinjaman</a></li>
+        <li><a href="../universiti/index.html">Senarai universiti</a></li>
+      </ul>
+    </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <p>Maklumat disusun daripada sumber rasmi. Rujuk portal kerajaan untuk keputusan akhir.</p>
+    <p class="copyright">© 2026 Bantuan Info</p>
+  </div>
+</footer>
+<script src="js/app.js"></script>
 </body>
 </html>
